@@ -93,7 +93,7 @@ export default function Members() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Anggota Kami</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-red-900 mb-4">Anggota Kami</h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Kenali anggota-anggota kami yang berbakat dan berdedikasi dalam mengembangkan organisasi.
@@ -145,7 +145,7 @@ export default function Members() {
                     />
                   </div>
                   <CardContent className="p-6">
-                    <h4 className="text-xl font-semibold text-blue-900">{member.name}</h4>
+                    <h4 className="text-xl font-semibold text-red-900">{member.name}</h4>
                     <p className="text-cyan-600 mb-1">{member.position}</p>
                     <p className="text-gray-600 mb-3">ID: {member.id}</p>
                     <p className="text-gray-600 mb-4">Divisi: {member.division}</p>
@@ -157,12 +157,12 @@ export default function Members() {
                         </a>
                       )}
                       {member.social.linkedin && (
-                        <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-600 transition-colors">
+                        <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-red-600 transition-colors">
                           <Linkedin size={20} />
                         </a>
                       )}
                       {member.social.twitter && (
-                        <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-blue-400 transition-colors">
+                        <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-red-400 transition-colors">
                           <Twitter size={20} />
                         </a>
                       )}

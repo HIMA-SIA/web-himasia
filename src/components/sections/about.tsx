@@ -43,7 +43,7 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Tentang Kami</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-red-900 mb-4">Tentang Kami</h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             [Nama Organisasi] adalah komunitas teknologi yang berdedikasi untuk mengembangkan 
@@ -67,10 +67,10 @@ export default function About() {
             >
               <Card className="h-full hover:shadow-lg transition-shadow border-none shadow">
                 <CardContent className="p-6">
-                  <div className="rounded-full bg-blue-100 p-3 w-12 h-12 flex items-center justify-center mb-4">
-                    <feature.icon className="h-6 w-6 text-blue-900" />
+                  <div className="rounded-full bg-red-100 p-3 w-12 h-12 flex items-center justify-center mb-4">
+                    <feature.icon className="h-6 w-6 text-red-900" />
                   </div>
-                  <h3 className="text-xl font-semibold text-blue-900 mb-2">{feature.name}</h3>
+                  <h3 className="text-xl font-semibold text-red-900 mb-2">{feature.name}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </CardContent>
               </Card>

@@ -61,7 +61,7 @@ export default function Activities() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Program Kerja</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-red-900 mb-4">Program Kerja</h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Berbagai kegiatan dan program yang kami selenggarakan untuk mengembangkan 
@@ -71,7 +71,7 @@ export default function Activities() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-blue-200"></div>
+          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-red-200"></div>
           
           {/* Activities */}
           {activities.map((activity, index) => (
@@ -98,16 +98,16 @@ export default function Activities() {
                   />
                   <div className="absolute top-4 right-4">
                     <Badge className={`${
-                      activity.status === 'Selesai' ? 'bg-green-500' : 'bg-blue-500'
+                      activity.status === 'Selesai' ? 'bg-green-500' : 'bg-red-500'
                     } hover:${
-                      activity.status === 'Selesai' ? 'bg-green-600' : 'bg-blue-600'
+                      activity.status === 'Selesai' ? 'bg-green-600' : 'bg-red-600'
                     }`}>
                       {activity.status}
                     </Badge>
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-blue-900 mb-3">{activity.title}</h3>
+                  <h3 className="text-xl font-semibold text-red-900 mb-3">{activity.title}</h3>
                   <div className="flex items-center text-gray-600 mb-2">
                     <Calendar className="h-4 w-4 mr-2" />
                     <span>{activity.date}</span>

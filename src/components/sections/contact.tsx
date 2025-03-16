@@ -43,7 +43,7 @@ export default function Contact() {
         subject: '',
         message: '',
       })
-    } catch (error) {
+    } catch {
       toast.error('Gagal mengirim pesan', {
         description: 'Terjadi kesalahan saat mengirim pesan. Silakan coba lagi nanti.',
       })
@@ -62,7 +62,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Hubungi Kami</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-red-900 mb-4">Hubungi Kami</h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Punya pertanyaan atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami.
@@ -131,7 +131,7 @@ export default function Contact() {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-blue-900 hover:bg-blue-800"
+                  className="w-full bg-red-900 hover:bg-red-800"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
