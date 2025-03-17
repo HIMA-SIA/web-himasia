@@ -1,58 +1,15 @@
-'use client'
+"use client"
 
-import { motion } from 'framer-motion'
-import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Calendar, MapPin, Clock } from 'lucide-react'
-import Image from 'next/image'
-
-// Sample data - replace with your actual data
-const activities = [
-  {
-    id: 1,
-    title: 'Workshop Pengembangan Web',
-    date: '15 Januari 2023',
-    location: 'Aula Utama',
-    time: '09:00 - 15:00',
-    image: '/images/placeholder.jpg',
-    description: 'Workshop intensif tentang pengembangan web modern menggunakan React dan NextJS.',
-    status: 'Selesai',
-  },
-  {
-    id: 2,
-    title: 'Seminar Teknologi AI',
-    date: '20 Februari 2023',
-    location: 'Auditorium',
-    time: '13:00 - 16:00',
-    image: '/images/placeholder.jpg',
-    description: 'Seminar mengenai perkembangan terbaru dalam teknologi kecerdasan buatan dan implementasinya.',
-    status: 'Selesai',
-  },
-  {
-    id: 3,
-    title: 'Hackathon Inovasi Digital',
-    date: '10-12 Maret 2023',
-    location: 'Gedung Inovasi',
-    time: 'Full Day',
-    image: '/images/placeholder.jpg',
-    description: 'Kompetisi pengembangan aplikasi selama 48 jam untuk memecahkan masalah sosial.',
-    status: 'Selesai',
-  },
-  {
-    id: 4,
-    title: 'Bootcamp Data Science',
-    date: '5-10 April 2023',
-    location: 'Lab Komputer',
-    time: '09:00 - 17:00',
-    image: '/images/placeholder.jpg',
-    description: 'Program intensif untuk mempelajari dasar-dasar data science dan machine learning.',
-    status: 'Akan Datang',
-  },
-]
+import { motion } from "motion/react"
+import Image from "next/image"
+import { Calendar, Clock, MapPin } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { activities } from "@/lib/data"
 
 export default function Activities() {
   return (
-    <section id="activities" className="py-24 bg-gray-50">
+    <section id="activities" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,9 +18,9 @@ export default function Activities() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-red-900 mb-4">Program Kerja</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-red-900 dark:text-red-500 mb-4">Program Kerja</h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             Berbagai kegiatan dan program yang kami selenggarakan untuk mengembangkan 
             kompetensi dan membangun komunitas teknologi.
           </p>
@@ -71,7 +28,7 @@ export default function Activities() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-red-200"></div>
+          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-red-200 dark:bg-red-800"></div>
           
           {/* Activities */}
           {activities.map((activity, index) => (
@@ -86,9 +43,9 @@ export default function Activities() {
               } md:w-1/2`}
             >
               {/* Timeline dot */}
-              <div className="absolute left-0 md:left-auto md:right-0 top-6 md:top-10 transform md:translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 border-4 border-white"></div>
+              <div className="absolute left-0 md:left-auto md:right-0 top-6 md:top-10 transform md:translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 border-4 border-white dark:border-gray-900"></div>
               
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+              <Card className="overflow-hidden hover:shadow-lg transition-shadow dark:bg-gray-800">
                 <div className="relative h-48 w-full">
                   <Image
                     src={activity.image}
@@ -101,26 +58,26 @@ export default function Activities() {
                       activity.status === 'Selesai' ? 'bg-green-500' : 'bg-red-500'
                     } hover:${
                       activity.status === 'Selesai' ? 'bg-green-600' : 'bg-red-600'
-                    }`}>
+                    } text-white`}>
                       {activity.status}
                     </Badge>
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-red-900 mb-3">{activity.title}</h3>
-                  <div className="flex items-center text-gray-600 mb-2">
+                  <h3 className="text-xl font-semibold text-red-900 dark:text-red-400 mb-3">{activity.title}</h3>
+                  <div className="flex items-center text-gray-600 dark:text-gray-300 mb-2">
                     <Calendar className="h-4 w-4 mr-2" />
                     <span>{activity.date}</span>
                   </div>
-                  <div className="flex items-center text-gray-600 mb-2">
+                  <div className="flex items-center text-gray-600 dark:text-gray-300 mb-2">
                     <Clock className="h-4 w-4 mr-2" />
                     <span>{activity.time}</span>
                   </div>
-                  <div className="flex items-center text-gray-600 mb-4">
+                  <div className="flex items-center text-gray-600 dark:text-gray-300 mb-4">
                     <MapPin className="h-4 w-4 mr-2" />
                     <span>{activity.location}</span>
                   </div>
-                  <p className="text-gray-700">{activity.description}</p>
+                  <p className="text-gray-700 dark:text-gray-300">{activity.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
