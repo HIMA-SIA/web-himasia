@@ -6,7 +6,7 @@ import { Toaster } from 'sonner'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Nama Organisasi - Website Resmi',
+  title: 'HIMASIA - UTDI',
   description: 'Website resmi organisasi teknologi modern',
 }
 
