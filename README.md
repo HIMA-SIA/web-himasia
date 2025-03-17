@@ -46,7 +46,6 @@ himasia-web/
 ├── public/           # Static assets
 └── styles/          # Global styles
  ```
-```
 
 ## 💻 Development Guidelines
 ### Branch Naming Convention
