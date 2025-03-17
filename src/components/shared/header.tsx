@@ -8,9 +8,9 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { Menu } from 'lucide-react'
+import Image from 'next/image'
 
 const navigation = [
-  { name: 'Beranda', href: '#' },
   { name: 'Tentang', href: '#about' },
   { name: 'Struktur', href: '#organization' },
   { name: 'Anggota', href: '#members' },
@@ -40,7 +40,14 @@ export default function Header() {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <div className="text-white text-xl font-bold">Logo</div>
+          <a href="#" className="flex items-center gap-2">
+          <Image
+              src="/logo.png"
+              alt="HIMASIA - UTDI"
+              width={60}
+              height={40}
+            />
+          </a>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
