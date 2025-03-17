@@ -1,37 +1,102 @@
+# 🌐 HIMASIA Website
+
+<p align="center">
+  <img src="public/logo.png" alt="HIMASIA Logo" width="200"/>
+</p>
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## 📑 Table of Contents
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Development Guidelines](#development-guidelines)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
 
+## 📋 Prerequisites
+- Node.js 18.17 or later
+- Git
+- npm, yarn, or pnpm
 
+## 🚀 Getting Started
 
-```bash
-# clone project 
-git clone https://github.com/HIMASIA/himasia-web.git
-# change the directory
-cd himasia-web
-# install node modul package
-npm i
-# run the development server
-npm run dev
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/HIMASIA/himasia-web.git
+   cd himasia-web
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies**
+   ```bash
+   npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Start development server**
+   ```bash
+   npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Visit http://localhost:3000 in your browser.
 
-## Learn More
+## 📁 Project Structure
+```plaintext
+himasia-web/
+├── app/                # Next.js app directory
+│   ├── components/    # Shared components
+│   ├── lib/          # Utility functions
+│   └── page.tsx      # Main page
+├── public/           # Static assets
+└── styles/          # Global styles
+ ```
 
-To learn more about Next.js, take a look at the following resources:
+## 💻 Development Guidelines
+### Branch Naming Convention
+- Features: feature/feature-name
+- Bugfixes: fix/bug-description
+- Documentation: docs/what-changed
+### Commit Message Format
+```plaintext
+type(scope): description
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[optional body]
+ ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Types: feat , fix , docs , style , refactor , test , chore
 
-## Deploy on Vercel
+### Code Style
+- Use TypeScript for type safety
+- Follow ESLint configuration
+- Format with Prettier
+## 🚀 Deployment
+The project is deployed on Vercel . For deployment details, see Next.js deployment documentation .
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
+1. Fork the repository
+2. Create your feature branch
+   ```bash
+   git checkout -b feature/amazing-feature
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Commit your changes
+   ```bash
+   git commit -m 'feat: add amazing feature'
+
+4. Push to the branch
+   ```bash
+   git push origin feature/amazing-feature
+
+5. Open a Pull Request (merge to main)
+6. Pull project
+    ```bash
+    git pull origin main
+
+## 🛠 Tech Stack
+- Next.js - React Framework
+- next/font - Font Optimization
+- Geist - Font Family
+## 📚 Additional Resources
+- Next.js Documentation
+- Learn Next.js
+- Next.js GitHub Repository
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📧 Creator
+- [Maulana](https://github.com/maulana-tech) - Project Lead & Frontend Developer
