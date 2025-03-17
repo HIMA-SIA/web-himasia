@@ -1,40 +1,30 @@
-'use client'
+"use client";
+import { motion } from "motion/react";
+import { HeroHighlight, Highlight } from "../ui/hero-highlight";
 
-import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
-
-export default function Hero() {
+export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-red-900 to-red-950">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="container mx-auto px-4 text-center"
+    <HeroHighlight>
+      <motion.h1
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        animate={{
+          opacity: 1,
+          y: [20, -5, 0],
+        }}
+        transition={{
+          duration: 0.5,
+          ease: [0.4, 0.0, 0.2, 1],
+        }}
+        className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
       >
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-          Selamat Datang di [Nama Organisasi]
-        </h1>
-        <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
-          Membangun masa depan teknologi bersama komunitas yang berdedikasi
-        </p>
-        <div className="flex gap-4 justify-center">
-          <Button
-            variant="default"
-            size="lg"
-            className="bg-cyan-500 hover:bg-cyan-600"
-          >
-            Lihat Youtube
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="text-red border-white hover:bg-white/10"
-          >
-            Instagram Kami
-          </Button>
-        </div>
-      </motion.div>
-    </section>
-  )
+        Welcome to HIMASIA {" "}
+        <Highlight className="text-black dark:text-white">
+          Part of UKM Universitas Teknologi Digital Indonesia.
+        </Highlight>
+      </motion.h1>
+    </HeroHighlight>
+  );
 }

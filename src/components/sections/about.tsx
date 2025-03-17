@@ -46,9 +46,9 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-bold text-red-900 mb-4">Tentang Kami</h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            [Nama Organisasi] adalah komunitas teknologi yang berdedikasi untuk mengembangkan 
-            inovasi dan berbagi pengetahuan. Didirikan pada tahun 2020, kami telah berkembang 
-            menjadi organisasi yang berpengaruh dalam ekosistem teknologi lokal.
+            HIMASIA adalah Himpunan Mahasiswa Sistem Informasi Akuntansi yang berdedikasi untuk mengembangkan 
+            inovasi dan berbagi pengetahuan dan pengalaman beroganisasi. Seiring dengan perkembangan teknologi, kami telah berkembang 
+            menjadi organisasi yang berpengaruh dalam UKM di Universitas Teknologi Digital Indonesia.
           </p>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto mt-4">
             Misi kami adalah membangun ekosistem teknologi yang inklusif dan mendukung 
