@@ -20,7 +20,7 @@ const members = [
     name: "M Maulana Firdausyah",
     position: "Hacker",
     division: "Ketua",
-    image: "/images/lana.jpg",
+    image: "/images/lana.JPG",
     social: {
       instagram: "https://www.instagram.com/naszyh_/",
       linkedin: "https://www.linkedin.com/in/muhammad-firdaussyah-083362293/",
@@ -32,7 +32,7 @@ const members = [
     name: "Arfandi Ruhanda S",
     position: "Event",
     division: "Ketua",
-    image: "/images/fandi.jpg",
+    image: "/images/fandi.JPG",
     social: {
       instagram: "https://www.instagram.com/fandistr_/",
       linkedin: "https://www.linkedin.com/in/arfandi-satria-255146328/",
@@ -44,7 +44,7 @@ const members = [
     name: "Erlindawati Nduru",
     position: "Administration",
     division: "Administrasi",
-    image: "/images/erlin.jpg",
+    image: "/images/erlin.JPG",
     social: {
       instagram: "https://www.instagram.com/erlinda_nduru/",
       linkedin: "https://www.linkedin.com/in/erlindawati-nduru-5a3254281/",
@@ -56,7 +56,7 @@ const members = [
     name: "Dita Putri Utami",
     position: "Administration",
     division: "Administrasi",
-    image: "/images/dita.jpg",
+    image: "/images/dita.JPG",
     social: {
       instagram: "https://instagram.com/username5",
       linkedin: "https://linkedin.com/in/username5",
@@ -80,7 +80,7 @@ const members = [
     name: "Sofia Hanifa",
     position: "Event",
     division: "Akademik",
-    image: "/images/sofia.jpg",
+    image: "/images/sofia.JPG",
     social: {
       instagram: "https://www.instagram.com/sfyhanifaa_/",
       linkedin: "https://linkedin.com/in/username4",
@@ -92,7 +92,7 @@ const members = [
     name: "Pramudya Ahzani I K",
     position: "Social Media",
     division: "Akademik",
-    image: "/images/imral.jpg",
+    image: "/images/imral.JPG",
     social: {
       instagram: "https://www.instagram.com/paikder/",
       linkedin: "https://linkedin.com/in/username4",
@@ -104,7 +104,7 @@ const members = [
     name: "Catur Setyono",
     position: "Hacker",
     division: "Akademik",
-    image: "/images/catur.jpg",
+    image: "/images/catur.JPG",
     social: {
       instagram: "https://www.instagram.com/notyourfriend_id/",
       linkedin: "https://linkedin.com/in/catursetyono",
@@ -116,7 +116,7 @@ const members = [
     name: "Joharman Lombu",
     position: "Core Team",
     division: "Akademik",
-    image: "/images/johar.jpg",
+    image: "/images/johar.JPG",
     social: {
       instagram: "https://www.instagram.com/joharmann_l/",
       linkedin: "https://linkedin.com/in/username4",
@@ -128,7 +128,7 @@ const members = [
     name: "Frisca Putri C",
     position: "Social Media",
     division: "Networking",
-    image: "/images/frisca.jpg",
+    image: "/images/frisca.JPG",
     social: {
       instagram: "https://www.instagram.com/fr1scaaa/",
       linkedin: "https://www.linkedin.com/in/frisca-putri-cahyani-644b67320/",
@@ -140,7 +140,7 @@ const members = [
     name: "Nendi Angger N",
     position: "Social Media",
     division: "Networking",
-    image: "/images/angger.jpg",
+    image: "/images/angger.JPG",
     social: {
       instagram: "https://www.instagram.com/nendeaan/",
       linkedin: "https://www.linkedin.com/in/nendi-angger-nurcahyo-7562332a6/",
@@ -152,7 +152,7 @@ const members = [
     name: "Muchlis Apri Adi N",
     position: "Event",
     division: "Networking",
-    image: "/images/muchlis.jpg",
+    image: "/images/muchlis.JPG",
     social: {
       instagram: "https://www.instagram.com/muchlis_apri/",
       linkedin: "https://www.linkedin.com/in/muchlis-apri-adi-nugroho-521054306/",
