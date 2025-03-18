@@ -1,37 +1,27 @@
 import { 
   Users, 
   BookOpen, 
-  Code, 
-  Award,
-  Laptop,
-  Calendar,
-  Presentation,
-  Lightbulb
+  StickyNote,
 } from "lucide-react";
 
 // Features for About section
 export const features = [
   {
-    name: "Komunitas",
+    name: "Networking",
     description: "Membangun komunitas mahasiswa Sistem Informasi Akuntansi yang solid dan kolaboratif.",
     icon: Users,
   },
   {
-    name: "Pembelajaran",
+    name: "Akademik",
     description: "Menyediakan sumber daya dan kegiatan untuk meningkatkan pengetahuan dan keterampilan anggota.",
     icon: BookOpen,
   },
   {
-    name: "Inovasi",
+    name: "Administrasi",
     description: "Mendorong pengembangan solusi inovatif dalam bidang sistem informasi akuntansi.",
-    icon: Lightbulb,
+    icon: StickyNote,
   },
-  {
-    name: "Prestasi",
-    description: "Mendukung anggota untuk berprestasi di berbagai kompetisi dan kegiatan akademik.",
-    icon: Award,
-  },
-];
+  ];
 
 // Activities for Activities section
 export const activities = [
