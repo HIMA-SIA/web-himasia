@@ -18,7 +18,7 @@ const members = [
   {
     id: "001",
     name: "M Maulana Firdausyah",
-    position: "Hacker",
+    position: "Ketua Umum",
     division: "Ketua",
     image: "/images/lana.JPG",
     social: {
@@ -30,7 +30,7 @@ const members = [
   {
     id: "002",
     name: "Arfandi Ruhanda S",
-    position: "Event",
+    position: "Wakil Ketua Umum",
     division: "Wakil",
     image: "/images/fandi.JPG",
     social: {
@@ -42,7 +42,7 @@ const members = [
   {
     id: "003",
     name: "Erlindawati Nduru",
-    position: "Administration",
+    position: "Administrasi 2",
     division: "Administrasi",
     image: "/images/erlin.JPG",
     social: {
@@ -54,7 +54,7 @@ const members = [
   {
     id: "004",
     name: "Dita Putri Utami",
-    position: "Administration",
+    position: "Koor Administrasi",
     division: "Administrasi",
     image: "/images/dita.JPG",
     social: {
@@ -66,7 +66,7 @@ const members = [
   {
     id: "005",
     name: "Faza Shafarania W",
-    position: "Administration",
+    position: "Administrasi 1",
     division: "Administrasi",
     image: "/images/faza.jpg",
     social: {
@@ -78,7 +78,7 @@ const members = [
   {
     id: "006",
     name: "Sofia Hanifa",
-    position: "Event",
+    position: "Anngota",
     division: "Akademik",
     image: "/images/sofia.JPG",
     social: {
@@ -90,7 +90,7 @@ const members = [
   {
     id: "007",
     name: "Pramudya Ahzani I K",
-    position: "Social Media",
+    position: "Anngota",
     division: "Akademik",
     image: "/images/imral.JPG",
     social: {
@@ -102,7 +102,7 @@ const members = [
   {
     id: "008",
     name: "Catur Setyono",
-    position: "Hacker",
+    position: "Koor Akademik",
     division: "Akademik",
     image: "/images/catur.JPG",
     social: {
@@ -114,7 +114,7 @@ const members = [
   {
     id: "009",
     name: "Joharman Lombu",
-    position: "Core Team",
+    position: "Anngota",
     division: "Akademik",
     image: "/images/johar.JPG",
     social: {
@@ -126,7 +126,7 @@ const members = [
   {
     id: "010",
     name: "Frisca Putri C",
-    position: "Social Media",
+    position: "Anngota",
     division: "Networking",
     image: "/images/frisca.JPG",
     social: {
@@ -138,7 +138,7 @@ const members = [
   {
     id: "011",
     name: "Nendi Angger N",
-    position: "Social Media",
+    position: "Anngota",
     division: "Networking",
     image: "/images/angger.JPG",
     social: {
@@ -150,7 +150,7 @@ const members = [
   {
     id: "012",
     name: "Muchlis Apri Adi N",
-    position: "Event",
+    position: "Koor Networking",
     division: "Networking",
     image: "/images/muchlis.JPG",
     social: {
@@ -284,7 +284,7 @@ export default function Members() {
               onClick={() => setCurrentPage(index + 1)}
               className={`px-4 py-2 border rounded ${
                 currentPage === index + 1
-                  ? "bg-cyan-500 text-white"
+                  ? "bg-red-800 text-white"
                   : "bg-white text-gray-700"
               }`}
             >

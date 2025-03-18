@@ -20,10 +20,10 @@ export function Hero() {
         }}
         className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto"
       >
-        Welcome to HIMASIA {" "}
         <Highlight className="text-black dark:text-white">
-          Part of UKM Universitas Teknologi Digital Indonesia.
+        Welcome to HIMASIA {" "}
         </Highlight>
+        Part of Universitas Teknologi Digital Indonesia.
       </motion.h1>
     </HeroHighlight>
   );

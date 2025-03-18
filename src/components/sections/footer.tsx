@@ -92,11 +92,6 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-bold mb-4">Jam Operasional</h3>
-            <ul className="space-y-2">
-              <li className="text-red-200 dark:text-gray-300">Senin - Jumat: 08:00 - 15:00</li>
-              <li className="text-red-200 dark:text-gray-300">Sabtu - Minggu: Tutup</li>
-            </ul>
           </motion.div>
         </div>
 
