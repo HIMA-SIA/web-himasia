@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
-import { Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail } from "lucide-react"
+import { Instagram, Twitter, Youtube, MapPin, Phone, Mail } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -20,16 +20,13 @@ export default function Footer() {
               inovasi dan berbagi pengetahuan.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-cyan-400 transition-colors">
+              <a href="https://www.instagram.com/himasia_utdi/" className="text-white hover:text-cyan-400 transition-colors">
                 <Instagram size={20} />
               </a>
               <a href="#" className="text-white hover:text-cyan-400 transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-white hover:text-cyan-400 transition-colors">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-white hover:text-cyan-400 transition-colors">
+              <a href="https://www.youtube.com/@himasiauniversitasteknolog1115" className="text-white hover:text-cyan-400 transition-colors">
                 <Youtube size={20} />
               </a>
             </div>
@@ -75,16 +72,16 @@ export default function Footer() {
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 text-cyan-400 flex-shrink-0 mt-0.5" />
                 <span className="text-red-200 dark:text-gray-300">
-                  Jl. Contoh No. 123, Kota, Provinsi, 12345
+                Jl. Raya Janti Jl. Majapahit No.143, Jaranan, Banguntapan, Kec. Banguntapan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55198
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-3 text-cyan-400 flex-shrink-0" />
-                <span className="text-red-200 dark:text-gray-300">+62 123 4567 890</span>
+                <span className="text-red-200 dark:text-gray-300">+62 878-2506-0359</span>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-3 text-cyan-400 flex-shrink-0" />
-                <span className="text-red-200 dark:text-gray-300">info@organisasi.com</span>
+                <span className="text-red-200 dark:text-gray-300">hmjka20@gmail.com</span>
               </li>
             </ul>
           </motion.div>
@@ -97,9 +94,8 @@ export default function Footer() {
           >
             <h3 className="text-xl font-bold mb-4">Jam Operasional</h3>
             <ul className="space-y-2">
-              <li className="text-red-200 dark:text-gray-300">Senin - Jumat: 09:00 - 17:00</li>
-              <li className="text-red-200 dark:text-gray-300">Sabtu: 09:00 - 13:00</li>
-              <li className="text-red-200 dark:text-gray-300">Minggu: Tutup</li>
+              <li className="text-red-200 dark:text-gray-300">Senin - Jumat: 08:00 - 15:00</li>
+              <li className="text-red-200 dark:text-gray-300">Sabtu - Minggu: Tutup</li>
             </ul>
           </motion.div>
         </div>
