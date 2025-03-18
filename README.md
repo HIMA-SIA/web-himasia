@@ -100,3 +100,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📧 Creator
 - [Maulana](https://github.com/maulana-tech) - Project Lead & Frontend Developer
+- [Catur Setyono](https://github.com/catursetyono) - Frontend Developer
