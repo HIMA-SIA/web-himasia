@@ -62,7 +62,7 @@ export default function Contact() {
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Alamat</h4>
                   <p className="text-gray-600 dark:text-gray-300 mt-1">
-                    Jl. Contoh No. 123, Kota, Provinsi, 12345
+                   Jl. Raya Janti Jl. Majapahit No.143, Jaranan, Banguntapan, Kec. Banguntapan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55198
                   </p>
                 </div>
               </div>
@@ -73,7 +73,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Telepon</h4>
-                  <p className="text-gray-600 dark:text-gray-300 mt-1">+62 123 4567 890</p>
+                  <p className="text-gray-600 dark:text-gray-300 mt-1">+62 878-2506-0359</p>
                 </div>
               </div>
               
@@ -84,7 +84,7 @@ export default function Contact() {
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Email</h4>
                   <p className="text-gray-600 dark:text-gray-300 mt-1">
-                    info@himasia.org
+                    hmjka20@gmail.com
                   </p>
                 </div>
               </div>
