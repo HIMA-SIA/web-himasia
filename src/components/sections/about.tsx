@@ -17,18 +17,18 @@ export default function About() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-red-900 dark:text-red-500 mb-4">Tentang Kami</h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto ">
             HIMASIA adalah Himpunan Mahasiswa Sistem Informasi Akuntansi yang berdedikasi untuk mengembangkan 
             inovasi dan berbagi pengetahuan dan pengalaman beroganisasi. Seiring dengan perkembangan teknologi, kami telah berkembang 
             menjadi organisasi yang berpengaruh dalam UKM di Universitas Teknologi Digital Indonesia.
           </p>
-          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mt-4">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mt-4 ">
             Misi kami adalah membangun ekosistem teknologi yang inklusif dan mendukung 
             pertumbuhan talenta digital melalui berbagai program dan kegiatan yang bermanfaat.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={feature.name}
