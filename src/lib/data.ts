@@ -27,44 +27,25 @@ export const features = [
 export const activities = [
   {
     id: 1,
-    title: "Workshop Teknologi Akuntansi",
+    title: "SGS batch 3",
     date: "15 Mei 2024",
     time: "09:00 - 15:00 WIB",
     location: "Auditorium UTDI",
     description: "Workshop tentang implementasi teknologi terbaru dalam sistem informasi akuntansi.",
-    image: "/images/workshop.jpg",
+    video : "/activities/comingsoon.mp4",
     status: "Akan Datang",
   },
   {
     id: 2,
-    title: "Seminar Karir di Bidang SIA",
-    date: "20 April 2024",
-    time: "13:00 - 16:00 WIB",
-    location: "Ruang Seminar UTDI",
-    description: "Seminar yang membahas peluang karir di bidang Sistem Informasi Akuntansi.",
-    image: "/images/seminar.jpg",
+    title: "SGS batch 2",
+    date: "5 Maret 2025",
+    time: "19:00 - 21:00 WIB",
+    location: "Online",
+    description: "Workshop Laravel",
+    images : "/activities/sgs2.jpg",
     status: "Selesai",
   },
-  {
-    id: 3,
-    title: "Pelatihan Software Akuntansi",
-    date: "10 Juni 2024",
-    time: "09:00 - 12:00 WIB",
-    location: "Lab Komputer UTDI",
-    description: "Pelatihan penggunaan software akuntansi untuk mahasiswa SIA.",
-    image: "/images/training.jpg",
-    status: "Akan Datang",
-  },
-  {
-    id: 4,
-    title: "Kunjungan Industri",
-    date: "5 Maret 2024",
-    time: "08:00 - 17:00 WIB",
-    location: "PT. Teknologi Finansial Indonesia",
-    description: "Kunjungan ke perusahaan untuk melihat implementasi sistem informasi akuntansi di dunia industri.",
-    image: "/images/industry-visit.jpg",
-    status: "Selesai",
-  },
+ 
 ];
 
 // Navigation items for header
