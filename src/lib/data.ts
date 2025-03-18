@@ -18,7 +18,7 @@ export const features = [
   },
   {
     name: "Administrasi",
-    description: "Mendorong pengembangan solusi inovatif dalam bidang sistem informasi akuntansi.",
+    description: "Menyusun Laporan administrasi keuangan organisasi dan segala bentuk bentuk dokumentasi kegiatan.",
     icon: StickyNote,
   },
   ];
