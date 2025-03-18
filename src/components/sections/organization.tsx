@@ -6,56 +6,57 @@ import Image from 'next/image'
 
 const leaders = [
   {
-    name: 'Nama Ketua',
+    name: 'M Maulana Firdausyah',
     position: 'Ketua Umum',
-    image: '/images/placeholder.jpg',
+    image: '/images/lana.JPG',
     description: 'Memimpin organisasi dan bertanggung jawab atas seluruh kegiatan.',
   },
   {
-    name: 'Nama Wakil',
+    name: 'Arfandi Ruhanda Sgit ',
     position: 'Wakil Ketua',
-    image: '/images/placeholder.jpg',
+    image: '/images/fandi.JPG',
     description: 'Membantu ketua dalam menjalankan tugas dan tanggung jawab organisasi.',
   },
   {
-    name: 'Nama Sekretaris',
+    name: 'Erlindawati Nduru',
     position: 'Sekretaris',
-    image: '/images/placeholder.jpg',
+    image: '/images/erlin.JPG',
     description: 'Mengelola administrasi dan dokumentasi organisasi.',
   },
   {
-    name: 'Nama Bendahara',
+    name: 'Faza Shafarania W',
+    position: 'Sekretaris',
+    image: '/images/faza.jpg',
+    description: 'Mengelola keuangan dan anggaran organisasi.',
+  },
+  {
+    name: 'Dita Putri Utami',
     position: 'Bendahara',
-    image: '/images/placeholder.jpg',
+    image: '/images/dita.JPG',
     description: 'Mengelola keuangan dan anggaran organisasi.',
   },
 ]
 
 const divisions = [
   {
-    name: 'Divisi Teknologi',
-    leader: 'Nama Kepala Divisi',
-    members: 5,
-    description: 'Bertanggung jawab atas pengembangan teknologi dan infrastruktur digital.',
+    name: 'Divisi Administrasi',
+    leader: 'Dita Putri Utami',
+    members: 3,
+    description: 'Mengelola keuangan dan anggaran organisasi. dan infrastruktur digital.',
   },
   {
-    name: 'Divisi Acara',
-    leader: 'Nama Kepala Divisi',
-    members: 8,
-    description: 'Merencanakan dan mengkoordinasikan seluruh kegiatan dan acara organisasi.',
+    name: 'Divisi Akademik',
+    leader: 'Catur Setyono',
+    members: 4,
+    description: 'Merencanakan dan membuat kegiatan pengembangan anggota.',
   },
   {
-    name: 'Divisi Humas',
-    leader: 'Nama Kepala Divisi',
-    members: 6,
+    name: 'Divisi Networking',
+    leader: 'Muchlis Apri Adi N',
+    members: 3,
     description: 'Mengelola komunikasi eksternal dan hubungan dengan mitra atau sponsor.',
   },
-  {
-    name: 'Divisi Media',
-    leader: 'Nama Kepala Divisi',
-    members: 7,
-    description: 'Mengelola konten media sosial dan publikasi organisasi.',
-  },
+  
 ]
 
 export default function Organization() {
@@ -144,7 +145,7 @@ export default function Organization() {
 
             {/* Divisions - Third Level */}
             <h3 className="text-2xl font-bold text-red-900 mb-8 text-center">Divisi</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {divisions.map((division, index) => (
                 <motion.div
                   key={division.name}
@@ -174,7 +175,7 @@ export default function Organization() {
         {/* Detailed Information Section */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-red-900 mb-8 text-center">Detail Pengurus Inti</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {leaders.map((leader, index) => (
               <motion.div
                 key={`detail-${leader.name}`}
@@ -183,7 +184,7 @@ export default function Organization() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full hover:shadow-lg transition-shadow ">
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row gap-4">
                       <div className="relative h-24 w-24 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0">
