@@ -31,7 +31,7 @@ const members = [
     id: "002",
     name: "Arfandi Ruhanda S",
     position: "Event",
-    division: "Ketua",
+    division: "Wakil",
     image: "/images/fandi.JPG",
     social: {
       instagram: "https://www.instagram.com/fandistr_/",
@@ -161,7 +161,7 @@ const members = [
   },
 ];
 
-const divisions = ["All", "Ketua", "Administrasi", "Akademik", "Networking"];
+const divisions = ["All", "Ketua","Wakil", "Administrasi", "Akademik", "Networking"];
 
 export default function Members() {
   const [searchTerm, setSearchTerm] = useState("");
