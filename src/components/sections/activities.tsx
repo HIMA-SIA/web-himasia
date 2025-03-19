@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,9 +9,39 @@ import { Badge } from "@/components/ui/badge";
 import { activities } from "@/lib/data";
 
 export default function Activities() {
+  const containerRef = useRef<HTMLDivElement>(null); // Referensi ke container utama
+  const { scrollYProgress } = useScroll({
+    target: containerRef, // Scroll berdasarkan container
+    offset: ["start start", "end end"], // Pastikan animasi berlangsung sepanjang container
+  });
+
+  // Gunakan spring untuk animasi yang lebih smooth
+  const smoothScroll = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 20,
+    restDelta: 0.001,
+  });
+
+  // State untuk menyimpan tinggi container
+  const [containerHeight, setContainerHeight] = useState(0);
+
+  // Hitung tinggi container saat component dimount
+  useEffect(() => {
+    if (containerRef.current) {
+      // Kurangi tinggi container dengan margin atau padding jika diperlukan
+      const totalHeight = containerRef.current.scrollHeight;
+      const offset = 500; // Sesuaikan nilai offset jika diperlukan
+      setContainerHeight(totalHeight - offset);
+    }
+  }, []);
+
+  // Animasi tinggi garis berdasarkan tinggi container
+  const lineHeight = useTransform(smoothScroll, [0, 1], ["0%", `${containerHeight}px`]);
+
   return (
-    <section id="activities" className="py-24 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section ref={containerRef} id="activities" className="py-24 bg-gray-50 dark:bg-gray-900">
+      <div className="container mx-auto px-4 relative">
+        {/* Judul & Deskripsi */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,16 +54,18 @@ export default function Activities() {
           </h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-            Berbagai kegiatan dan program yang kami selenggarakan untuk
-            mengembangkan kompetensi dan membangun komunitas teknologi.
+            Berbagai kegiatan dan program yang kami selenggarakan untuk mengembangkan kompetensi dan membangun komunitas teknologi.
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-red-200 dark:bg-red-800"></div>
+        {/* Animated Timeline Line */}
+        <motion.div
+          style={{ height: lineHeight }}
+          className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-1 bg-gradient-to-b from-cyan-300 to-cyan-300 dark:from-red-500 dark:to-yellow-500 rounded-full"
+        ></motion.div>
 
-          {/* Activities */}
+        {/* Activities List */}
+        <div className="relative">
           {activities.map((activity, index) => (
             <motion.div
               key={activity.id}
@@ -46,9 +79,6 @@ export default function Activities() {
                   : "md:pl-12 md:ml-auto md:mr-0"
               } md:w-1/2`}
             >
-              {/* Timeline dot */}
-              <div className="absolute left-0 md:left-auto md:right-0 top-6 md:top-10 transform md:translate-x-1/2 w-4 h-4 rounded-full bg-cyan-500 border-4 border-white dark:border-gray-900"></div>
-
               <Card className="overflow-hidden hover:shadow-lg transition-shadow dark:bg-gray-800">
                 <div className="relative h-48 w-full">
                   {activity.video &&
