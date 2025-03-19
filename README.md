@@ -27,9 +27,9 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
    ```
    
- ```bash
+   ```bash
    cd web-himasia
-```
+    ```
 
 2. **Install dependencies**
    ```bash
