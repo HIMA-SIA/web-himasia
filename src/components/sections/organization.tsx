@@ -61,7 +61,7 @@ const divisions = [
 
 export default function Organization() {
   return (
-    <section id="organization" className="py-24 bg-gray-50">
+    <section id="organization" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,9 +70,9 @@ export default function Organization() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-red-900 mb-4">Struktur Organisasi</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-red-900 dark:text-red-500 mb-4">Struktur Organisasi</h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             Struktur organisasi kami dirancang untuk memastikan efisiensi dan kolaborasi 
             antar divisi dalam mencapai tujuan bersama.
           </p>
@@ -89,7 +89,7 @@ export default function Organization() {
               viewport={{ once: true }}
               className="mb-8"
             >
-              <Card className="w-64 overflow-hidden group shadow-lg border-2 border-red-900 relative z-10">
+              <Card className="w-64 overflow-hidden group shadow-lg border-2 border-red-900 dark:border-red-700 relative z-10 dark:bg-gray-800">
                 <div className="relative h-48 w-full">
                   <Image
                     src={leaders[0].image}
@@ -99,19 +99,19 @@ export default function Organization() {
                   />
                 </div>
                 <CardContent className="p-4 text-center">
-                  <h4 className="text-xl font-semibold text-red-900">{leaders[0].name}</h4>
-                  <p className="text-cyan-600 font-medium mb-2">{leaders[0].position}</p>
+                  <h4 className="text-xl font-semibold text-red-900 dark:text-red-400">{leaders[0].name}</h4>
+                  <p className="text-cyan-600 dark:text-cyan-400 font-medium mb-2">{leaders[0].position}</p>
                 </CardContent>
               </Card>
             </motion.div>
 
             {/* Improved Vertical Line */}
-            <div className="w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 rounded-full shadow-md"></div>
+            <div className="w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
 
             {/* Second Level - Wakil, Sekretaris, Bendahara */}
             <div className="flex flex-col md:flex-row gap-8 mb-8 relative">
               {/* Horizontal connector for second level - Fixed width and positioning */}
-              <div className="hidden md:block absolute top-0 left-0 right-0 transform -translate-y-1/2 h-1.5 w-full bg-gradient-to-r from-red-800 via-red-900 to-red-800 rounded-full shadow-md"></div>
+              <div className="hidden md:block absolute top-0 left-0 right-0 transform -translate-y-1/2 h-1.5 w-full bg-gradient-to-r from-red-800 via-red-900 to-red-800 dark:from-red-700 dark:via-red-600 dark:to-red-700 rounded-full shadow-md"></div>
               
               {leaders.slice(1).map((leader, index) => (
                 <motion.div
@@ -123,9 +123,9 @@ export default function Organization() {
                   className="relative"
                 >
                   {/* Vertical Line to each second level position - Improved alignment */}
-                  <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 rounded-full shadow-md hidden md:block"></div>
+                  <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md hidden md:block"></div>
                   
-                  <Card className="w-64 overflow-hidden group shadow-md border border-red-200 relative z-10">
+                  <Card className="w-64 overflow-hidden group shadow-md border border-red-200 dark:border-red-900/30 relative z-10 dark:bg-gray-800">
                     <div className="relative h-40 w-full">
                       <Image
                         src={leader.image}
@@ -135,8 +135,8 @@ export default function Organization() {
                       />
                     </div>
                     <CardContent className="p-4 text-center">
-                      <h4 className="text-lg font-semibold text-red-900">{leader.name}</h4>
-                      <p className="text-cyan-600 font-medium mb-1">{leader.position}</p>
+                      <h4 className="text-lg font-semibold text-red-900 dark:text-red-400">{leader.name}</h4>
+                      <p className="text-cyan-600 dark:text-cyan-400 font-medium mb-1">{leader.position}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -144,19 +144,19 @@ export default function Organization() {
             </div>
 
             {/* Improved Vertical Line */}
-            <div className="w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 rounded-full shadow-md mb-4"></div>
+            <div className="w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md mb-4"></div>
 
             {/* Divisions - Third Level */}
-            <h3 className="text-2xl font-bold text-red-900 mb-8 text-center">Divisi</h3>
+            <h3 className="text-2xl font-bold text-red-900 dark:text-red-500 mb-8 text-center">Divisi</h3>
             
             {/* Main horizontal connector for divisions */}
-            <div className="relative w-full max-w-4xl mb-8">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-1.5 w-[80%] bg-gradient-to-r from-red-800 via-red-900 to-red-800 rounded-full shadow-md"></div>
+            <div className="relative w-full max-w-4xl mb-16">
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-1.5 w-[80%] bg-gradient-to-r from-red-800 via-red-900 to-red-800 dark:from-red-700 dark:via-red-600 dark:to-red-700 rounded-full shadow-md"></div>
               
-              {/* Vertical connectors from horizontal line to each division */}
-              <div className="absolute left-[16.67%] transform -translate-x-1/2 top-0 w-1.5 h-8 bg-gradient-to-b from-red-800 to-red-900 rounded-full shadow-md"></div>
-              <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1.5 h-8 bg-gradient-to-b from-red-800 to-red-900 rounded-full shadow-md"></div>
-              <div className="absolute left-[83.33%] transform -translate-x-1/2 top-0 w-1.5 h-8 bg-gradient-to-b from-red-800 to-red-900 rounded-full shadow-md"></div>
+              {/* Vertical connectors from horizontal line to each division - made longer */}
+              <div className="absolute left-[16.67%] transform -translate-x-1/2 top-0 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
+              <div className="absolute left-[83.33%] transform -translate-x-1/2 top-0 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-4xl">
@@ -169,12 +169,12 @@ export default function Organization() {
                   viewport={{ once: true }}
                   className="relative"
                 >
-                  <Card className="h-full hover:shadow-lg transition-shadow border border-red-100 relative z-10">
+                  <Card className="h-full hover:shadow-lg transition-shadow border border-red-100 dark:border-red-900/30 relative z-10 dark:bg-gray-800">
                     <CardContent className="p-6">
-                      <h4 className="text-xl font-semibold text-red-900 mb-2">{division.name}</h4>
-                      <p className="text-gray-700 mb-1"><span className="font-medium">Kepala:</span> {division.leader}</p>
-                      <p className="text-gray-700 mb-3"><span className="font-medium">Jumlah Anggota:</span> {division.members}</p>
-                      <p className="text-gray-600">{division.description}</p>
+                      <h4 className="text-xl font-semibold text-red-900 dark:text-red-400 mb-2">{division.name}</h4>
+                      <p className="text-gray-700 dark:text-gray-300 mb-1"><span className="font-medium">Kepala:</span> {division.leader}</p>
+                      <p className="text-gray-700 dark:text-gray-300 mb-3"><span className="font-medium">Jumlah Anggota:</span> {division.members}</p>
+                      <p className="text-gray-600 dark:text-gray-400">{division.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -185,7 +185,7 @@ export default function Organization() {
 
         {/* Detailed Information Section */}
         <div className="mt-16">
-          <h3 className="text-2xl font-bold text-red-900 mb-8 text-center">Detail Pengurus Inti</h3>
+          <h3 className="text-2xl font-bold text-red-900 dark:text-red-500 mb-8 text-center">Detail Pengurus Inti</h3>
           <div className="flex flex-wrap justify-center gap-6">
             {leaders.map((leader, index) => (
               <motion.div
@@ -195,7 +195,7 @@ export default function Organization() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow ">
+                <Card className="h-full hover:shadow-lg transition-shadow dark:bg-gray-800 dark:border-gray-700">
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row gap-4">
                       <div className="relative h-24 w-24 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0">
@@ -207,9 +207,9 @@ export default function Organization() {
                         />
                       </div>
                       <div>
-                        <h4 className="text-xl font-semibold text-red-900 md:text-left text-center">{leader.name}</h4>
-                        <p className="text-cyan-600 font-medium mb-2 md:text-left text-center">{leader.position}</p>
-                        <p className="text-gray-600">{leader.description}</p>
+                        <h4 className="text-xl font-semibold text-red-900 dark:text-red-400 md:text-left text-center">{leader.name}</h4>
+                        <p className="text-cyan-600 dark:text-cyan-400 font-medium mb-2 md:text-left text-center">{leader.position}</p>
+                        <p className="text-gray-600 dark:text-gray-400">{leader.description}</p>
                       </div>
                     </div>
                   </CardContent>

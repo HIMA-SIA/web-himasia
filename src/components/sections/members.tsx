@@ -188,7 +188,7 @@ export default function Members() {
   const totalPages = Math.ceil(filteredMembers.length / membersPerPage);
 
   return (
-    <section id="members" className="py-24 bg-white">
+    <section id="members" className="py-24 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -197,11 +197,11 @@ export default function Members() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-red-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-red-900 dark:text-red-500 mb-4">
             Anggota Kami
           </h2>
           <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             Kenalin anggota-anggota kami yang berbakat dan berdedikasi dalam
             mengembangkan organisasi.
           </p>
@@ -232,7 +232,7 @@ export default function Members() {
           {currentMembers.map((member) => (
             <Card
               key={member.id}
-              className="h-full hover:shadow-lg transition-all"
+              className="h-full hover:shadow-lg transition-all dark:bg-gray-800 dark:border-gray-700"
             >
               <div className="relative h-48 w-full">
                 <Image
@@ -243,31 +243,31 @@ export default function Members() {
                 />
               </div>
               <CardContent className="p-6">
-                <h4 className="text-xl font-semibold text-red-900">
+                <h4 className="text-xl font-semibold text-red-900 dark:text-red-400">
                   {member.name}
                 </h4>
-                <p className="text-cyan-600 mb-1">{member.position}</p>
-                <p className="text-gray-600 mb-3">ID: {member.id}</p>
-                <p className="text-gray-600 mb-4">Divisi: {member.division}</p>
+                <p className="text-cyan-600 dark:text-cyan-400 mb-1">{member.position}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-3">ID: {member.id}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">Divisi: {member.division}</p>
                 <div className="flex gap-3">
                   <a
                     href={member.social.instagram}
                     target="_blank"
-                    className="text-gray-500 hover:text-pink-600"
+                    className="text-gray-500 hover:text-pink-600 dark:text-gray-400 dark:hover:text-pink-500"
                   >
                     <Instagram size={20} />
                   </a>
                   <a
                     href={member.social.linkedin}
                     target="_blank"
-                    className="text-gray-500 hover:text-red-600"
+                    className="text-gray-500 hover:text-red-600 dark:text-gray-400 dark:hover:text-blue-500"
                   >
                     <Linkedin size={20} />
                   </a>
                   <a
                     href={member.social.twitter}
                     target="_blank"
-                    className="text-gray-500 hover:text-red-400"
+                    className="text-gray-500 hover:text-red-400 dark:text-gray-400 dark:hover:text-blue-400"
                   >
                     <Twitter size={20} />
                   </a>
@@ -284,8 +284,8 @@ export default function Members() {
               onClick={() => setCurrentPage(index + 1)}
               className={`px-4 py-2 border rounded ${
                 currentPage === index + 1
-                  ? "bg-red-800 text-white"
-                  : "bg-white text-gray-700"
+                  ? "bg-red-800 text-white dark:bg-red-700"
+                  : "bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
               }`}
             >
               {index + 1}
