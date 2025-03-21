@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -13,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import { Instagram, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
+import { PlaceholdersAndVanishInput } from "../ui/placehorders";
 
 const members = [
   {
@@ -207,25 +207,37 @@ export default function Members() {
           </p>
         </motion.div>
 
-        <div className="flex flex-col md:flex-row gap-4 mb-10">
-          <Input
-            placeholder="Cari berdasarkan nama, posisi, atau ID anggota..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full md:w-2/3"
-          />
-          <Select value={selectedDivision} onValueChange={setSelectedDivision}>
-            <SelectTrigger>
-              <SelectValue placeholder="Pilih Divisi" />
-            </SelectTrigger>
-            <SelectContent>
-              {divisions.map((division) => (
-                <SelectItem key={division} value={division}>
-                  {division}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+        <div className="flex flex-col md:flex-row items-center gap-2 mb-10 max-w-3xl mx-auto">
+          <div className="w-full md:w-3/4 relative">
+            <PlaceholdersAndVanishInput 
+              placeholders={[
+                "Cari anggota berdasarkan nama...",
+                "Cari berdasarkan ID anggota...",
+                "Cari berdasarkan posisi...",
+                "Tekan Alt untuk melihat shortcut",
+              ]}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onSubmit={(e) => {
+                e.preventDefault();
+                // Search is already handled by the onChange event
+              }}
+            />
+            {/* Removed the tip text here */}
+          </div>
+          <div className="w-full md:w-1/4">
+            <Select value={selectedDivision} onValueChange={setSelectedDivision}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Pilih Divisi" />
+              </SelectTrigger>
+              <SelectContent>
+                {divisions.map((division) => (
+                  <SelectItem key={division} value={division}>
+                    {division}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
