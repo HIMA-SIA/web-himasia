@@ -45,6 +45,17 @@ export const activities = [
     video: "/activities/comingsoon.mp4",
     status: "Akan Datang",
   },
+  {
+    id: 3,
+    title: "Belajar Bareng,
+    date: "Coming Soon",
+    time: "-",
+    location: "-",
+    description:
+      "Workshop tentang implementasi teknologi terbaru dalam sistem informasi akuntansi.",
+    video: "/activities/comingsoon.mp4",
+    status: "Akan Datang",
+  },
 ];
 
 // Navigation items for header
