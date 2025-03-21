@@ -23,8 +23,13 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/HIMASIA/himasia-web.git
-   cd himasia-web
+   git clone https://github.com/HIMA-SIA/web-himasia.git
+
+   ```
+   
+   ```bash
+   cd web-himasia
+    ```
 
 2. **Install dependencies**
    ```bash

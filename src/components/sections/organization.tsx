@@ -12,7 +12,7 @@ const leaders = [
     description: 'Memimpin organisasi dan bertanggung jawab atas seluruh kegiatan.',
   },
   {
-    name: 'Arfandi Ruhanda Sgit ',
+    name: 'Arfandi Ruhanda S',
     position: 'Wakil Ketua',
     image: '/images/fandi.JPG',
     description: 'Membantu ketua dalam menjalankan tugas dan tanggung jawab organisasi.',
