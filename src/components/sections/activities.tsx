@@ -13,13 +13,13 @@ export default function Activities() {
   const timelineEntries = activities.map(activity => ({
     title: activity.date,
     content: (
-      <Card className="overflow-hidden hover:shadow-lg transition-shadow dark:bg-gray-800">
+      <Card className="overflow-hidden hover:shadow-lg transition-shadow dark:bg-gray-800 ">
         <div className="relative h-48 w-full">
           {activity.video &&
           /\.(mp4|webm|ogg)$/i.test(activity.video) ? (
             <video
               className="object-cover w-full h-full"
-              controls
+              playsInline
               autoPlay
               loop
               muted
@@ -77,7 +77,7 @@ export default function Activities() {
   }));
 
   return (
-    <section id="activities" className="py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="activities" className="py-24 bg-gray-50 dark:bg-gray-900 ">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
