@@ -47,7 +47,7 @@ export const activities = [
   },
   {
     id: 3,
-    title: "Belajar Bareng,
+    title: "Belajar Bareng",
     date: "Coming Soon",
     time: "-",
     location: "-",
