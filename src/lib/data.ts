@@ -26,17 +26,6 @@ export const features = [
 export const activities = [
   {
     id: 1,
-    title: "SGS batch 3",
-    date: "15 Mei 2024",
-    time: "09:00 - 15:00 WIB",
-    location: "Auditorium UTDI",
-    description:
-      "Workshop tentang implementasi teknologi terbaru dalam sistem informasi akuntansi.",
-    video: "/activities/comingsoon.mp4",
-    status: "Akan Datang",
-  },
-  {
-    id: 2,
     title: "SGS batch 2",
     date: "5 Maret 2025",
     time: "19:00 - 21:00 WIB",
@@ -44,6 +33,17 @@ export const activities = [
     description: "Workshop Laravel",
     images: "/activities/sgs2.jpg",
     status: "Selesai",
+  },
+  {
+    id: 2,
+    title: "SGS batch 3",
+    date: "Coming Soon",
+    time: "-",
+    location: "-",
+    description:
+      "Workshop tentang implementasi teknologi terbaru dalam sistem informasi akuntansi.",
+    video: "/activities/comingsoon.mp4",
+    status: "Akan Datang",
   },
 ];
 
