@@ -422,8 +422,7 @@ export default function Contact() {
             ></iframe>
           </div>
         </div>
-
       </div>
     </section>
-  )
+  );
 }
