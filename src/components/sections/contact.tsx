@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
 import {
   MapPin,
@@ -29,6 +29,11 @@ export default function Contact() {
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
+  // Initialize EmailJS once when component mounts
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "");
+  }, []);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -49,12 +54,15 @@ export default function Contact() {
       message: formData.message,
     }
     
+    // Get service and template IDs from environment variables
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+    
     // Send email using EmailJS with environment variables
     emailjs.send(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
-      templateParams,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+      serviceId,
+      templateId,
+      templateParams
     )
     .then((response) => {
       console.log('Email sent successfully:', response)
