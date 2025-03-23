@@ -1,11 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { motion } from "motion/react"
 import { MapPin, Mail, Send, CheckCircle, Loader2, Instagram } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
+import emailjs from '@emailjs/browser'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ export default function Contact() {
   })
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [focusedField, setFocusedField] = useState<string | null>(null)
+  const formRef = useRef<HTMLFormElement>(null)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -27,9 +29,24 @@ export default function Contact() {
     e.preventDefault()
     setFormStatus('loading')
     
-    // Simulate API call
-    setTimeout(() => {
-      console.log(formData)
+    // Prepare template parameters
+    const templateParams = {
+      from_name: `${formData.firstName} ${formData.lastName}`,
+      from_email: formData.email,
+      phone: formData.phone,
+      message: formData.message,
+      to_name: "HIMASIA UTDI", // Recipient name
+    }
+    
+    // Send email using EmailJS
+    emailjs.send(
+      'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+      'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+      templateParams,
+      'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+    )
+    .then((response) => {
+      console.log('Email sent successfully:', response)
       setFormStatus('success')
       
       // Reset form after 2 seconds
@@ -37,7 +54,16 @@ export default function Contact() {
         setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" })
         setFormStatus('idle')
       }, 2000)
-    }, 1500)
+    })
+    .catch((error) => {
+      console.error('Email sending failed:', error)
+      setFormStatus('error')
+      
+      // Reset status after 3 seconds
+      setTimeout(() => {
+        setFormStatus('idle')
+      }, 3000)
+    })
   }
 
   return (
@@ -143,8 +169,18 @@ export default function Contact() {
                   <h4 className="text-xl font-bold text-white mb-2">Pesan Terkirim!</h4>
                   <p className="text-gray-300">Terima kasih telah menghubungi kami. Kami akan segera merespons pesan Anda.</p>
                 </motion.div>
+              ) : formStatus === 'error' ? (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-red-900/30 p-6 rounded-lg text-center"
+                >
+                  <div className="h-16 w-16 text-red-500 mx-auto mb-4">❌</div>
+                  <h4 className="text-xl font-bold text-white mb-2">Gagal Mengirim!</h4>
+                  <p className="text-gray-300">Maaf, terjadi kesalahan saat mengirim pesan. Silakan coba lagi nanti.</p>
+                </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium mb-2 text-gray-200">Nama Depan</label>
