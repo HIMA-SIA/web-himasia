@@ -33,7 +33,7 @@ export default function Contact() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -422,7 +422,8 @@ export default function Contact() {
             ></iframe>
           </div>
         </div>
+
       </div>
     </section>
-  );
+  )
 }
