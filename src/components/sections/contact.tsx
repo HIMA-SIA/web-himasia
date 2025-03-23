@@ -43,6 +43,8 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 bg-gray-900 text-white relative overflow-hidden">
       {/* Background pattern */}
+      
+      
       <div className="absolute inset-0 opacity-5">
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-red-500 rounded-full filter blur-3xl"></div>
         <div className="absolute top-1/2 -right-24 w-80 h-80 bg-cyan-500 rounded-full filter blur-3xl"></div>
