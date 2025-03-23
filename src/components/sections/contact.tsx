@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Send } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react"
+import { motion } from "motion/react"
+import { MapPin, Mail, Send, CheckCircle, Loader2, Instagram } from "lucide-react"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { Textarea } from "@/components/ui/textarea"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,19 +13,31 @@ export default function Contact() {
     email: "",
     subject: "",
     message: "",
-  });
+  })
+  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [focusedField, setFocusedField] = useState<string | null>(null)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    alert("Pesan telah dikirim! Kami akan menghubungi Anda segera.");
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setFormStatus('loading')
+    
+    // Simulate API call
+    setTimeout(() => {
+      console.log(formData)
+      setFormStatus('success')
+      
+      // Reset form after 2 seconds
+      setTimeout(() => {
+        setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" })
+        setFormStatus('idle')
+      }, 2000)
+    }, 1500)
+  }
 
   return (
     <section id="contact" className="py-24 bg-white dark:bg-gray-950">
@@ -94,48 +106,161 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md"
+            className="lg:w-1/2"
           >
-            <h3 className="text-2xl font-bold text-red-900 dark:text-red-400 mb-6">
-              Kirim Pesan
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {[
-                { name: "name", type: "text", placeholder: "Nama Lengkap" },
-                { name: "email", type: "email", placeholder: "Alamat Email" },
-                { name: "subject", type: "text", placeholder: "Subjek" },
-              ].map((input, index) => (
-                <Input
-                  key={index}
-                  type={input.type}
-                  name={input.name}
-                  placeholder={input.placeholder}
-                  value={formData[input.name]}
-                  onChange={handleChange}
-                  required
-                  className="w-full border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-red-500"
-                />
-              ))}
-              <Textarea
-                name="message"
-                placeholder="Pesan Anda"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full min-h-[150px] border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-red-500"
-              />
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <Button
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-red-900 hover:bg-red-800 text-white dark:bg-red-700 dark:hover:bg-red-600 transition-all duration-300 transform"
+            <div className="bg-gray-800/50 p-8 rounded-lg shadow-lg backdrop-blur-sm border border-gray-700/50">
+              <h3 className="text-2xl font-bold text-red-500 mb-6">Kirim Pesan</h3>
+              
+              {formStatus === 'success' ? (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-green-900/30 p-6 rounded-lg text-center"
                 >
-                  <Send className="h-5 w-5" /> Kirim Pesan
-                </Button>
-              </motion.div>
-            </form>
+                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                  <h4 className="text-xl font-bold text-white mb-2">Pesan Terkirim!</h4>
+                  <p className="text-gray-300">Terima kasih telah menghubungi kami. Kami akan segera merespons pesan Anda.</p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="firstName" className="block text-sm font-medium mb-2 text-gray-200">Nama Depan</label>
+                      <div className="relative">
+                        <Input
+                          id="firstName"
+                          type="text"
+                          name="firstName"
+                          value={formData.firstName}
+                          onChange={handleChange}
+                          onFocus={() => setFocusedField('firstName')}
+                          onBlur={() => setFocusedField(null)}
+                          required
+                          className={`w-full bg-gray-800 border-gray-700 text-white focus:border-red-500 focus:ring-red-500/20 transition-all duration-300 ${focusedField === 'firstName' ? 'border-red-500 ring-2 ring-red-500/20' : ''}`}
+                        />
+                        {focusedField === 'firstName' && (
+                          <motion.span 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="absolute -top-2 right-2 text-xs bg-red-500 px-2 py-0.5 rounded-full"
+                          >
+                            Wajib diisi
+                          </motion.span>
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <label htmlFor="lastName" className="block text-sm font-medium mb-2 text-gray-200">Nama Belakang</label>
+                      <div className="relative">
+                        <Input
+                          id="lastName"
+                          type="text"
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleChange}
+                          onFocus={() => setFocusedField('lastName')}
+                          onBlur={() => setFocusedField(null)}
+                          required
+                          className={`w-full bg-gray-800 border-gray-700 text-white focus:border-red-500 focus:ring-red-500/20 transition-all duration-300 ${focusedField === 'lastName' ? 'border-red-500 ring-2 ring-red-500/20' : ''}`}
+                        />
+                        {focusedField === 'lastName' && (
+                          <motion.span 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="absolute -top-2 right-2 text-xs bg-red-500 px-2 py-0.5 rounded-full"
+                          >
+                            Wajib diisi
+                          </motion.span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-200">Email</label>
+                    <div className="relative">
+                      <Input
+                        id="email"
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        onFocus={() => setFocusedField('email')}
+                        onBlur={() => setFocusedField(null)}
+                        required
+                        className={`w-full bg-gray-800 border-gray-700 text-white focus:border-red-500 focus:ring-red-500/20 transition-all duration-300 ${focusedField === 'email' ? 'border-red-500 ring-2 ring-red-500/20' : ''}`}
+                      />
+                      {focusedField === 'email' && (
+                        <motion.span 
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="absolute -top-2 right-2 text-xs bg-red-500 px-2 py-0.5 rounded-full"
+                        >
+                          Wajib diisi
+                        </motion.span>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium mb-2 text-gray-200">Nomor Telepon</label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      onFocus={() => setFocusedField('phone')}
+                      onBlur={() => setFocusedField(null)}
+                      className={`w-full bg-gray-800 border-gray-700 text-white focus:border-red-500 focus:ring-red-500/20 transition-all duration-300 ${focusedField === 'phone' ? 'border-red-500 ring-2 ring-red-500/20' : ''}`}
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-200">Pesan</label>
+                    <div className="relative">
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        onFocus={() => setFocusedField('message')}
+                        onBlur={() => setFocusedField(null)}
+                        required
+                        className={`w-full min-h-[150px] bg-gray-800 border-gray-700 text-white focus:border-red-500 focus:ring-red-500/20 transition-all duration-300 ${focusedField === 'message' ? 'border-red-500 ring-2 ring-red-500/20' : ''}`}
+                      />
+                      {focusedField === 'message' && (
+                        <motion.span 
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="absolute -top-2 right-2 text-xs bg-red-500 px-2 py-0.5 rounded-full"
+                        >
+                          Wajib diisi
+                        </motion.span>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    type="submit" 
+                    disabled={formStatus === 'loading'}
+                    className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:translate-y-0"
+                  >
+                    {formStatus === 'loading' ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        Mengirim...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-4 w-4" />
+                        Kirim Pesan
+                      </>
+                    )}
+                  </Button>
+                </form>
+              )}
+            </div>
           </motion.div>
         </div>
 
