@@ -70,33 +70,35 @@ export default function Contact() {
       reply_to: formData.email,
       phone_number: formData.phone,
       message: formData.message,
+      // Add any additional fields your template might need
     }
     
-    // Send email using EmailJS
+    // Send email using EmailJS directly from the client
     emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
-      templateParams
+      templateParams,
+      EMAILJS_PUBLIC_KEY
     )
     .then((response) => {
-      console.log('Email sent successfully:', response)
-      setFormStatus('success')
+      console.log('Email sent successfully:', response);
+      setFormStatus('success');
       
-      // Reset form after 2 seconds
+      // Reset form after successful submission
       setTimeout(() => {
-        setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" })
-        setFormStatus('idle')
-      }, 2000)
+        setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+        setFormStatus('idle');
+      }, 3000);
     })
     .catch((error) => {
-      console.error('Email sending failed:', error)
-      setFormStatus('error')
+      console.error('Email sending failed:', error);
+      setFormStatus('error');
       
-      // Reset status after 3 seconds
+      // Reset status after error
       setTimeout(() => {
-        setFormStatus('idle')
-      }, 3000)
-    })
+        setFormStatus('idle');
+      }, 5000);
+    });
   };
 
   return (
