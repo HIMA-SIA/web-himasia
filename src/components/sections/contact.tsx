@@ -15,6 +15,11 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 
+// Define EmailJS keys as constants to ensure they're available
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -29,9 +34,14 @@ export default function Contact() {
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Initialize EmailJS once when component mounts
+  // Initialize EmailJS once when component mounts with the public key
   useEffect(() => {
-    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "");
+    if (EMAILJS_PUBLIC_KEY) {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+      console.log("EmailJS initialized with public key");
+    } else {
+      console.error("EmailJS public key is missing");
+    }
   }, []);
 
   const handleChange = (
@@ -54,15 +64,20 @@ export default function Contact() {
       message: formData.message,
     }
     
-    // Get service and template IDs from environment variables
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+    // Check if EmailJS keys are available
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error("EmailJS configuration is incomplete");
+      setFormStatus("error");
+      setTimeout(() => setFormStatus("idle"), 3000);
+      return;
+    }
     
     // Send email using EmailJS with environment variables
     emailjs.send(
-      serviceId,
-      templateId,
-      templateParams
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      templateParams,
+      EMAILJS_PUBLIC_KEY // Add the public key here as well
     )
     .then((response) => {
       console.log('Email sent successfully:', response)
