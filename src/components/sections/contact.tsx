@@ -1,14 +1,5 @@
 "use client";
 
-
-import { useState, useRef, useEffect } from "react"
-import { motion } from "motion/react"
-import { MapPin, Mail, Send, CheckCircle, Loader2, Instagram } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import emailjs from '@emailjs/browser'
-
 import { useState, useRef } from "react";
 import { motion } from "motion/react";
 import {
@@ -24,7 +15,6 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 
-
 export default function Contact() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -39,25 +29,6 @@ export default function Contact() {
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
-
-  // Initialize EmailJS
-  useEffect(() => {
-    // No need to check if it exists since we're using the OR operator in the send method
-    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "");
-    console.log("EmailJS initialized with key:", process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ? "Key exists" : "No key found");
-  }, []);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setFormStatus('loading')
-    
-    // Create template parameters with the form data
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -70,44 +41,11 @@ export default function Contact() {
     setFormStatus("loading");
 
     // Prepare template parameters
-
     const templateParams = {
-      to_name: "HIMASIA UTDI",
       from_name: `${formData.firstName} ${formData.lastName}`,
-      reply_to: formData.email,
-      phone_number: formData.phone,
+      from_email: formData.email,
+      phone: formData.phone,
       message: formData.message,
-
-    }
-    
-    // Send email using EmailJS with environment variables
-    emailjs.send(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
-      templateParams,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
-    )
-    .then((response) => {
-      console.log('Email sent successfully:', response)
-      setFormStatus('success')
-      
-      // Reset form after 2 seconds
-      setTimeout(() => {
-        setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" })
-        setFormStatus('idle')
-      }, 2000)
-    })
-    .catch((error) => {
-      console.error('Email sending failed:', error)
-      setFormStatus('error')
-      
-      // Reset status after 3 seconds
-      setTimeout(() => {
-        setFormStatus('idle')
-      }, 3000)
-    })
-  }
-
       to_name: "HIMASIA UTDI", // Recipient name
     };
 
@@ -145,7 +83,6 @@ export default function Contact() {
         }, 3000);
       });
   };
-
 
   return (
     <section
