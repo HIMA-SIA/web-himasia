@@ -15,10 +15,10 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 
-// Define EmailJS keys as constants to ensure they're available
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
+// Define EmailJS keys as constants with hardcoded fallback values for production
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "service_id_here";
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "template_id_here";
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "public_key_here";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -36,12 +36,8 @@ export default function Contact() {
 
   // Initialize EmailJS once when component mounts with the public key
   useEffect(() => {
-    if (EMAILJS_PUBLIC_KEY) {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-      console.log("EmailJS initialized with public key");
-    } else {
-      console.error("EmailJS public key is missing");
-    }
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+    console.log("EmailJS initialized with public key");
   }, []);
 
   const handleChange = (
@@ -64,20 +60,11 @@ export default function Contact() {
       message: formData.message,
     }
     
-    // Check if EmailJS keys are available
-    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-      console.error("EmailJS configuration is incomplete");
-      setFormStatus("error");
-      setTimeout(() => setFormStatus("idle"), 3000);
-      return;
-    }
-    
-    // Send email using EmailJS with environment variables
+    // Send email using EmailJS
     emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
-      templateParams,
-      EMAILJS_PUBLIC_KEY // Add the public key here as well
+      templateParams
     )
     .then((response) => {
       console.log('Email sent successfully:', response)
