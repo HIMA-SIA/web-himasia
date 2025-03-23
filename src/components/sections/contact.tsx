@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { motion } from "motion/react"
 import { MapPin, Mail, Send, CheckCircle, Loader2, Instagram } from "lucide-react"
 import { Input } from "@/components/ui/input"
@@ -20,6 +20,13 @@ export default function Contact() {
   const [focusedField, setFocusedField] = useState<string | null>(null)
   const formRef = useRef<HTMLFormElement>(null)
 
+  // Initialize EmailJS
+  useEffect(() => {
+    // No need to check if it exists since we're using the OR operator in the send method
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "");
+    console.log("EmailJS initialized with key:", process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ? "Key exists" : "No key found");
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -29,21 +36,21 @@ export default function Contact() {
     e.preventDefault()
     setFormStatus('loading')
     
-    // Prepare template parameters
+    // Create template parameters with the form data
     const templateParams = {
+      to_name: "HIMASIA UTDI",
       from_name: `${formData.firstName} ${formData.lastName}`,
-      from_email: formData.email,
-      phone: formData.phone,
+      reply_to: formData.email,
+      phone_number: formData.phone,
       message: formData.message,
-      to_name: "HIMASIA UTDI", // Recipient name
     }
     
-    // Send email using EmailJS
+    // Send email using EmailJS with environment variables
     emailjs.send(
-      'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-      'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
       templateParams,
-      'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
     )
     .then((response) => {
       console.log('Email sent successfully:', response)
