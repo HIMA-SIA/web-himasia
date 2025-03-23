@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "motion/react"
-import { MapPin, Phone, Mail, Send, CheckCircle, Loader2 } from "lucide-react"
+import { MapPin, Mail, Send, CheckCircle, Loader2, Instagram } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
@@ -89,15 +89,15 @@ export default function Contact() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="bg-red-900/30 rounded-full p-3 mr-4 group-hover:bg-red-600 transition-colors duration-300">
-                  <Phone className="h-6 w-6 text-red-400 group-hover:text-white transition-colors duration-300" />
+                  <Instagram className="h-6 w-6 text-red-400 group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white">Telepon</h4>
+                  <h4 className="text-lg font-semibold text-white">Instagram</h4>
                   <a 
-                    href="tel:+6287825060359" 
+                    href="https://www.instagram.com/himasia_utdi/" 
                     className="text-gray-300 mt-1 hover:text-red-400 transition-colors duration-300 inline-block"
                   >
-                    +62 878-2506-0359
+                    @himasia_utdi
                   </a>
                 </div>
               </motion.div>
