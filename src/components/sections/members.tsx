@@ -16,10 +16,10 @@ import { PlaceholdersAndVanishInput } from "../ui/placehorders";
 
 const members = [
   {
-    id: "001",
+    id: "233210013",
     name: "M Maulana Firdausyah",
     position: "Ketua Umum",
-    division: "Ketua",
+    division: "Ketua Umum",
     image: "/images/lana.JPG",
     social: {
       instagram: "https://www.instagram.com/naszyh_/",
@@ -28,10 +28,10 @@ const members = [
     },
   },
   {
-    id: "002",
+    id: "233210004",
     name: "Arfandi Ruhanda S",
     position: "Wakil Ketua Umum",
-    division: "Wakil",
+    division: "Wakil Ketua",
     image: "/images/fandi.JPG",
     social: {
       instagram: "https://www.instagram.com/fandistr_/",
@@ -40,7 +40,7 @@ const members = [
     },
   },
   {
-    id: "003",
+    id: "233210007",
     name: "Erlindawati Nduru",
     position: "Administrasi 2",
     division: "Administrasi",
@@ -52,7 +52,7 @@ const members = [
     },
   },
   {
-    id: "004",
+    id: "233210008",
     name: "Dita Putri Utami",
     position: "Koor Administrasi",
     division: "Administrasi",
@@ -64,7 +64,7 @@ const members = [
     },
   },
   {
-    id: "005",
+    id: "233210011",
     name: "Faza Shafarania W",
     position: "Administrasi 1",
     division: "Administrasi",
@@ -76,7 +76,7 @@ const members = [
     },
   },
   {
-    id: "006",
+    id: "233210010",
     name: "Sofia Hanifa",
     position: "Anngota",
     division: "Akademik",
@@ -88,7 +88,7 @@ const members = [
     },
   },
   {
-    id: "007",
+    id: "233210015",
     name: "Pramudya Ahzani I K",
     position: "Anngota",
     division: "Akademik",
@@ -100,7 +100,7 @@ const members = [
     },
   },
   {
-    id: "008",
+    id: "233210004",
     name: "Catur Setyono",
     position: "Koor Akademik",
     division: "Akademik",
@@ -112,7 +112,7 @@ const members = [
     },
   },
   {
-    id: "009",
+    id: "233210001",
     name: "Joharman Lombu",
     position: "Anngota",
     division: "Akademik",
@@ -124,7 +124,7 @@ const members = [
     },
   },
   {
-    id: "010",
+    id: "233210012",
     name: "Frisca Putri C",
     position: "Anngota",
     division: "Networking",
@@ -136,7 +136,7 @@ const members = [
     },
   },
   {
-    id: "011",
+    id: "233210014",
     name: "Nendi Angger N",
     position: "Anngota",
     division: "Networking",
@@ -148,7 +148,7 @@ const members = [
     },
   },
   {
-    id: "012",
+    id: "233210003",
     name: "Muchlis Apri Adi N",
     position: "Koor Networking",
     division: "Networking",
@@ -212,7 +212,7 @@ export default function Members() {
             <PlaceholdersAndVanishInput 
               placeholders={[
                 "Cari anggota berdasarkan nama...",
-                "Cari berdasarkan ID anggota...",
+                "Cari berdasarkan Nomor Induk Anggota...",
                 "Cari berdasarkan posisi...",
                 "Tekan Alt untuk melihat shortcut",
               ]}
@@ -259,7 +259,7 @@ export default function Members() {
                   {member.name}
                 </h4>
                 <p className="text-cyan-600 dark:text-cyan-400 mb-1">{member.position}</p>
-                <p className="text-gray-600 dark:text-gray-400 mb-3">ID: {member.id}</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-3">NIA: {member.id}</p>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">Divisi: {member.division}</p>
                 <div className="flex gap-3">
                   <a

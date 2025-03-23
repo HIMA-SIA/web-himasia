@@ -152,7 +152,7 @@ export default function Footer() {
                   <Phone className="h-4 w-4 text-cyan-400 flex-shrink-0" />
                 </div>
                 <a href="tel:+6287825060359" className="text-red-200 dark:text-gray-300 hover:text-white transition-colors text-sm">
-                  +62 878-2506-0359
+                +62 838-9647-7498
                 </a>
               </motion.li>
               <motion.li 
