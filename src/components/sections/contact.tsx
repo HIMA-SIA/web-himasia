@@ -40,48 +40,41 @@ export default function Contact() {
     e.preventDefault();
     setFormStatus("loading");
 
-    // Prepare template parameters
+    // Create template parameters with the form data
     const templateParams = {
+      to_name: "HIMASIA UTDI",
       from_name: `${formData.firstName} ${formData.lastName}`,
-      from_email: formData.email,
-      phone: formData.phone,
+      reply_to: formData.email,
+      phone_number: formData.phone,
       message: formData.message,
-      to_name: "HIMASIA UTDI", // Recipient name
-    };
-
-    // Send email using EmailJS
-    emailjs
-      .send(
-        "service_0rlnye8", // Replace with your EmailJS service ID
-        "template_r6m0yi5", // Replace with your EmailJS template ID
-        templateParams,
-        "Bi1U0Yp6jM8wOKUE3" // Replace with your EmailJS public key
-      )
-      .then((response) => {
-        console.log("Email sent successfully:", response);
-        setFormStatus("success");
-
-        // Reset form after 2 seconds
-        setTimeout(() => {
-          setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            message: "",
-          });
-          setFormStatus("idle");
-        }, 2000);
-      })
-      .catch((error) => {
-        console.error("Email sending failed:", error);
-        setFormStatus("error");
-
-        // Reset status after 3 seconds
-        setTimeout(() => {
-          setFormStatus("idle");
-        }, 3000);
-      });
+    }
+    
+    // Send email using EmailJS with environment variables
+    emailjs.send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
+      templateParams,
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+    )
+    .then((response) => {
+      console.log('Email sent successfully:', response)
+      setFormStatus('success')
+      
+      // Reset form after 2 seconds
+      setTimeout(() => {
+        setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" })
+        setFormStatus('idle')
+      }, 2000)
+    })
+    .catch((error) => {
+      console.error('Email sending failed:', error)
+      setFormStatus('error')
+      
+      // Reset status after 3 seconds
+      setTimeout(() => {
+        setFormStatus('idle')
+      }, 3000)
+    })
   };
 
   return (
