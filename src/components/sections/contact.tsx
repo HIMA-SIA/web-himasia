@@ -16,6 +16,14 @@ import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  interface FormData {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    message: string;
+    // Add other fields as needed
+  }
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -33,7 +41,7 @@ export default function Contact() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev: any) => ({ ...prev, [name]: value }));
+    setFormData((prev: FormData) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -57,7 +65,7 @@ export default function Contact() {
         templateParams,
         "Bi1U0Yp6jM8wOKUE3" // Replace with your EmailJS public key
       )
-      .then((response) => {
+      .then((response: any) => {
         console.log("Email sent successfully:", response);
         setFormStatus("success");
 
@@ -73,7 +81,7 @@ export default function Contact() {
           setFormStatus("idle");
         }, 2000);
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.error("Email sending failed:", error);
         setFormStatus("error");
 
