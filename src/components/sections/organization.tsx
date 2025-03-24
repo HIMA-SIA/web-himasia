@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import Image from 'next/image'
+import { useState } from 'react'
 
 const leaders = [
   {
@@ -60,6 +61,8 @@ const divisions = [
 ]
 
 export default function Organization() {
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
   return (
     <section id="organization" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -89,20 +92,43 @@ export default function Organization() {
               viewport={{ once: true }}
               className="mb-8"
             >
-              <Card className="w-64 overflow-hidden group shadow-lg border-2 border-red-900 dark:border-red-700 relative z-10 dark:bg-gray-800">
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={leaders[0].image}
-                    alt={leaders[0].name}
-                    fill
-                    className="object-cover transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <CardContent className="p-4 text-center">
-                  <h4 className="text-xl font-semibold text-red-900 dark:text-red-400">{leaders[0].name}</h4>
-                  <p className="text-cyan-600 dark:text-cyan-400 font-medium mb-2">{leaders[0].position}</p>
-                </CardContent>
-              </Card>
+              <div 
+                className="w-64 perspective-1000 cursor-pointer"
+                onMouseEnter={() => setHoveredCard('leader-0')}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <motion.div 
+                  className={`relative w-full h-full transition-all duration-500 preserve-3d ${hoveredCard === 'leader-0' ? 'rotate-y-180' : ''}`}
+                >
+                  {/* Front of card */}
+                  <Card className="w-64 overflow-hidden group shadow-lg border-2 border-red-900 dark:border-red-700 relative z-10 dark:bg-gray-800 backface-hidden">
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src={leaders[0].image}
+                        alt={leaders[0].name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <CardContent className="p-4 text-center">
+                      <h4 className="text-xl font-semibold text-red-900 dark:text-red-400">{leaders[0].name}</h4>
+                      <p className="text-cyan-600 dark:text-cyan-400 font-medium mb-2">{leaders[0].position}</p>
+                    </CardContent>
+                  </Card>
+                  
+                  {/* Back of card */}
+                  <Card className="w-64 absolute inset-0 h-full overflow-hidden shadow-lg border-2 border-red-900 dark:border-red-700 dark:bg-gray-800 backface-hidden rotate-y-180">
+                    <CardContent className="p-6 flex flex-col justify-center h-full">
+                      <h4 className="text-xl font-semibold text-red-900 dark:text-red-400 mb-4">{leaders[0].name}</h4>
+                      <p className="text-gray-600 dark:text-gray-300">{leaders[0].description}</p>
+                      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <p className="text-cyan-600 dark:text-cyan-400 font-medium">{leaders[0].position}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </div>
             </motion.div>
 
             {/* Improved Vertical Line */}
@@ -125,20 +151,43 @@ export default function Organization() {
                   {/* Vertical Line to each second level position - Improved alignment */}
                   <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md hidden md:block"></div>
                   
-                  <Card className="w-64 overflow-hidden group shadow-md border border-red-200 dark:border-red-900/30 relative z-10 dark:bg-gray-800">
-                    <div className="relative h-40 w-full">
-                      <Image
-                        src={leader.image}
-                        alt={leader.name}
-                        fill
-                        className="object-cover transition-transform group-hover:scale-105"
-                      />
-                    </div>
-                    <CardContent className="p-4 text-center">
-                      <h4 className="text-lg font-semibold text-red-900 dark:text-red-400">{leader.name}</h4>
-                      <p className="text-cyan-600 dark:text-cyan-400 font-medium mb-1">{leader.position}</p>
-                    </CardContent>
-                  </Card>
+                  <div 
+                    className="w-64 perspective-1000 cursor-pointer"
+                    onMouseEnter={() => setHoveredCard(`leader-${index+1}`)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                  >
+                    <motion.div 
+                      className={`relative w-full h-full transition-all duration-500 preserve-3d ${hoveredCard === `leader-${index+1}` ? 'rotate-y-180' : ''}`}
+                    >
+                      {/* Front of card */}
+                      <Card className="w-64 overflow-hidden group shadow-md border border-red-200 dark:border-red-900/30 relative z-10 dark:bg-gray-800 backface-hidden">
+                        <div className="relative h-40 w-full overflow-hidden">
+                          <Image
+                            src={leader.image}
+                            alt={leader.name}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <CardContent className="p-4 text-center">
+                          <h4 className="text-lg font-semibold text-red-900 dark:text-red-400">{leader.name}</h4>
+                          <p className="text-cyan-600 dark:text-cyan-400 font-medium mb-1">{leader.position}</p>
+                        </CardContent>
+                      </Card>
+                      
+                      {/* Back of card */}
+                      <Card className="w-64 absolute inset-0 h-full overflow-hidden shadow-md border border-red-200 dark:border-red-900/30 dark:bg-gray-800 backface-hidden rotate-y-180">
+                        <CardContent className="p-6 flex flex-col justify-center h-full">
+                          <h4 className="text-lg font-semibold text-red-900 dark:text-red-400 mb-3">{leader.name}</h4>
+                          <p className="text-gray-600 dark:text-gray-300">{leader.description}</p>
+                          <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <p className="text-cyan-600 dark:text-cyan-400 font-medium">{leader.position}</p>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -169,12 +218,15 @@ export default function Organization() {
                   viewport={{ once: true }}
                   className="relative"
                 >
-                  <Card className="h-full hover:shadow-lg transition-shadow border border-red-100 dark:border-red-900/30 relative z-10 dark:bg-gray-800">
-                    <CardContent className="p-6">
-                      <h4 className="text-xl font-semibold text-red-900 dark:text-red-400 mb-2">{division.name}</h4>
-                      <p className="text-gray-700 dark:text-gray-300 mb-1"><span className="font-medium">Kepala:</span> {division.leader}</p>
-                      <p className="text-gray-700 dark:text-gray-300 mb-3"><span className="font-medium">Jumlah Anggota:</span> {division.members}</p>
-                      <p className="text-gray-600 dark:text-gray-400">{division.description}</p>
+                  <Card className="h-full hover:shadow-xl transition-all duration-300 border border-red-100 dark:border-red-900/30 relative z-10 dark:bg-gray-800 group">
+                    <CardContent className="p-6 relative overflow-hidden">
+                      <div className="absolute -right-12 -top-12 w-24 h-24 bg-red-100 dark:bg-red-900/20 rounded-full transition-transform duration-300 group-hover:scale-150"></div>
+                      <div className="relative z-10">
+                        <h4 className="text-xl font-semibold text-red-900 dark:text-red-400 mb-2 group-hover:translate-x-1 transition-transform duration-300">{division.name}</h4>
+                        <p className="text-gray-700 dark:text-gray-300 mb-1 transition-all duration-300"><span className="font-medium">Kepala:</span> {division.leader}</p>
+                        <p className="text-gray-700 dark:text-gray-300 mb-3 transition-all duration-300"><span className="font-medium">Jumlah Anggota:</span> {division.members}</p>
+                        <p className="text-gray-600 dark:text-gray-400 transition-all duration-300">{division.description}</p>
+                      </div>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -194,16 +246,17 @@ export default function Organization() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -5 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow dark:bg-gray-800 dark:border-gray-700">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row gap-4">
-                      <div className="relative h-24 w-24 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0">
+                      <div className="relative h-24 w-24 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0 ring-4 ring-red-100 dark:ring-red-900/30 group">
                         <Image
                           src={leader.image}
                           alt={leader.name}
                           fill
-                          className="object-cover"
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
                       <div>

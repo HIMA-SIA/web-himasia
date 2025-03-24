@@ -167,6 +167,7 @@ export default function Members() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDivision, setSelectedDivision] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
+  const [hoveredMember, setHoveredMember] = useState<string | null>(null);
   const membersPerPage = 4;
 
   const filteredMembers = members.filter((member) => {
@@ -222,7 +223,6 @@ export default function Members() {
                 // Search is already handled by the onChange event
               }}
             />
-            {/* Removed the tip text here */}
           </div>
           <div className="w-full md:w-1/4">
             <Select value={selectedDivision} onValueChange={setSelectedDivision}>
@@ -242,56 +242,133 @@ export default function Members() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {currentMembers.map((member) => (
-            <Card
+            <motion.div
               key={member.id}
-              className="h-full hover:shadow-lg transition-all dark:bg-gray-800 dark:border-gray-700"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
+              className="perspective-1000"
             >
-              <div className="relative h-48 w-full">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover"
-                />
+              <div 
+                className="relative w-full h-full transition-all duration-500 preserve-3d cursor-pointer"
+                style={{ 
+                  transform: hoveredMember === member.id ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                  transformStyle: 'preserve-3d'
+                }}
+                onMouseEnter={() => setHoveredMember(member.id)}
+                onMouseLeave={() => setHoveredMember(null)}
+              >
+                {/* Front of card */}
+                <Card
+                  className="h-full shadow-lg transition-all duration-300 dark:bg-gray-800 dark:border-gray-700 backface-hidden"
+                  style={{ backfaceVisibility: 'hidden' }}
+                >
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover transition-transform duration-700 hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <CardContent className="p-6">
+                    <h4 className="text-xl font-semibold text-red-900 dark:text-red-400">
+                      {member.name}
+                    </h4>
+                    <p className="text-cyan-600 dark:text-cyan-400 mb-1">{member.position}</p>
+                    <p className="text-gray-600 dark:text-gray-400 mb-3">NIA: {member.id}</p>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">Divisi: {member.division}</p>
+                    <div className="flex gap-3">
+                      <a
+                        href={member.social.instagram}
+                        target="_blank"
+                        className="text-gray-500 hover:text-pink-600 dark:text-gray-400 dark:hover:text-pink-500 transition-colors duration-300 transform hover:scale-110"
+                      >
+                        <Instagram size={20} />
+                      </a>
+                      <a
+                        href={member.social.linkedin}
+                        target="_blank"
+                        className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-500 transition-colors duration-300 transform hover:scale-110"
+                      >
+                        <Linkedin size={20} />
+                      </a>
+                      <a
+                        href={member.social.twitter}
+                        target="_blank"
+                        className="text-gray-500 hover:text-blue-400 dark:text-gray-400 dark:hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
+                      >
+                        <Twitter size={20} />
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Back of card */}
+                <Card
+                  className="h-full shadow-lg transition-all duration-300 dark:bg-gray-800 dark:border-gray-700 absolute inset-0 backface-hidden rotate-y-180"
+                  style={{ 
+                    backfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)'
+                  }}
+                >
+                  <CardContent className="p-6 flex flex-col justify-center h-full">
+                    <div className="text-center mb-4">
+                      <div className="relative h-20 w-20 rounded-full overflow-hidden mx-auto mb-4 ring-4 ring-red-100 dark:ring-red-900/30">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <h4 className="text-xl font-semibold text-red-900 dark:text-red-400">
+                        {member.name}
+                      </h4>
+                      <p className="text-cyan-600 dark:text-cyan-400 mb-1">{member.position}</p>
+                    </div>
+                    
+                    <div className="space-y-2 text-center">
+                      <p className="text-gray-600 dark:text-gray-400">NIA: {member.id}</p>
+                      <p className="text-gray-600 dark:text-gray-400">Divisi: {member.division}</p>
+                    </div>
+                    
+                    <div className="mt-6 flex justify-center gap-4">
+                      <a
+                        href={member.social.instagram}
+                        target="_blank"
+                        className="p-2 bg-gradient-to-br from-purple-600 to-pink-500 rounded-full text-white hover:shadow-lg transition-all duration-300"
+                      >
+                        <Instagram size={20} />
+                      </a>
+                      <a
+                        href={member.social.linkedin}
+                        target="_blank"
+                        className="p-2 bg-blue-600 rounded-full text-white hover:shadow-lg transition-all duration-300"
+                      >
+                        <Linkedin size={20} />
+                      </a>
+                      <a
+                        href={member.social.twitter}
+                        target="_blank"
+                        className="p-2 bg-blue-400 rounded-full text-white hover:shadow-lg transition-all duration-300"
+                      >
+                        <Twitter size={20} />
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-              <CardContent className="p-6">
-                <h4 className="text-xl font-semibold text-red-900 dark:text-red-400">
-                  {member.name}
-                </h4>
-                <p className="text-cyan-600 dark:text-cyan-400 mb-1">{member.position}</p>
-                <p className="text-gray-600 dark:text-gray-400 mb-3">NIA: {member.id}</p>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">Divisi: {member.division}</p>
-                <div className="flex gap-3">
-                  <a
-                    href={member.social.instagram}
-                    target="_blank"
-                    className="text-gray-500 hover:text-pink-600 dark:text-gray-400 dark:hover:text-pink-500"
-                  >
-                    <Instagram size={20} />
-                  </a>
-                  <a
-                    href={member.social.linkedin}
-                    target="_blank"
-                    className="text-gray-500 hover:text-red-600 dark:text-gray-400 dark:hover:text-blue-500"
-                  >
-                    <Linkedin size={20} />
-                  </a>
-                  <a
-                    href={member.social.twitter}
-                    target="_blank"
-                    className="text-gray-500 hover:text-red-400 dark:text-gray-400 dark:hover:text-blue-400"
-                  >
-                    <Twitter size={20} />
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
+            </motion.div>
           ))}
         </div>
 
         <div className="flex justify-center mt-8 space-x-4">
           {Array.from({ length: totalPages }, (_, index) => (
-            <button
+            <motion.button
               key={index + 1}
               onClick={() => setCurrentPage(index + 1)}
               className={`px-4 py-2 border rounded ${
@@ -299,9 +376,11 @@ export default function Members() {
                   ? "bg-red-800 text-white dark:bg-red-700"
                   : "bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
               }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               {index + 1}
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
