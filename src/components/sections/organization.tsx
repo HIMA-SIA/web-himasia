@@ -151,22 +151,6 @@ export default function Organization() {
                   {/* Vertical Line to each second level position - Improved alignment */}
                   {/* <div className="absolute -top-0 left-1/2 transform -translate-x-1/2 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md hidden md:block"></div> */}
                   
-<<<<<<< HEAD
-                  <Card className="w-64 mt-8 overflow-hidden group shadow-md border border-red-200 dark:border-red-900/30 relative z-10 dark:bg-gray-800 ">
-                    <div className="relative h-40 w-full">
-                      <Image
-                        src={leader.image}
-                        alt={leader.name}
-                        fill
-                        className="object-cover transition-transform group-hover:scale-105"
-                      />
-                    </div>
-                    <CardContent className="p-4 text-center">
-                      <h4 className="text-lg font-semibold text-red-900 dark:text-red-400">{leader.name}</h4>
-                      <p className="text-cyan-600 dark:text-cyan-400 font-medium mb-1">{leader.position}</p>
-                    </CardContent>
-                  </Card>
-=======
                   <div 
                     className="w-64 perspective-1000 cursor-pointer"
                     onMouseEnter={() => setHoveredCard(`leader-${index+1}`)}
@@ -204,7 +188,7 @@ export default function Organization() {
                       </Card>
                     </motion.div>
                   </div>
->>>>>>> 9a54a60dd33eff22a36f47f0697602b485aa4d62
+
                 </motion.div>
               ))}
             </div>
