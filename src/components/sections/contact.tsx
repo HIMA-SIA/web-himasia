@@ -21,14 +21,6 @@ const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
 export default function Contact() {
-  interface FormData {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    message: string;
-    // Add other fields as needed
-  }
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -56,7 +48,7 @@ export default function Contact() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev: FormData) => ({ ...prev, [name]: value }));
+    setFormData((prev: any) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -78,44 +70,6 @@ export default function Contact() {
       reply_to: formData.email,
       phone_number: formData.phone,
       message: formData.message,
-<<<<<<< HEAD
-      to_name: "HIMASIA UTDI", // Recipient name
-    };
-
-    // Send email using EmailJS
-    emailjs
-      .send(
-        "service_0rlnye8", // Replace with your EmailJS service ID
-        "template_r6m0yi5", // Replace with your EmailJS template ID
-        templateParams,
-        "Bi1U0Yp6jM8wOKUE3" // Replace with your EmailJS public key
-      )
-      .then((response: any) => {
-        console.log("Email sent successfully:", response);
-        setFormStatus("success");
-
-        // Reset form after 2 seconds
-        setTimeout(() => {
-          setFormData({
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: "",
-            message: "",
-          });
-          setFormStatus("idle");
-        }, 2000);
-      })
-      .catch((error: any) => {
-        console.error("Email sending failed:", error);
-        setFormStatus("error");
-
-        // Reset status after 3 seconds
-        setTimeout(() => {
-          setFormStatus("idle");
-        }, 3000);
-      });
-=======
       // Add any additional fields your template might need
     }
     
@@ -145,7 +99,6 @@ export default function Contact() {
         setFormStatus('idle');
       }, 5000);
     });
->>>>>>> 9a54a60dd33eff22a36f47f0697602b485aa4d62
   };
 
   return (
