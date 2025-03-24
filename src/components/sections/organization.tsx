@@ -188,7 +188,6 @@ export default function Organization() {
                       </Card>
                     </motion.div>
                   </div>
-
                 </motion.div>
               ))}
             </div>
