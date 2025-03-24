@@ -132,11 +132,17 @@ export default function Organization() {
             </motion.div>
 
             {/* Improved Vertical Line */}
+
+            <div className="w-1 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
+
             <div className="w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
 
+
             {/* Second Level - Wakil, Sekretaris, Bendahara */}
-            <div className="flex flex-col md:flex-row gap-8 mb-8 relative">
+            <div className="flex flex-col md:flex-row gap-8 mb-8 relative ">
               {/* Horizontal connector for second level - Fixed width and positioning */}
+
+              <div className="hidden mb-16 md:block absolute top-0 left-0 right-0 transform -translate-y-1/2 h-1 w-full bg-gradient-to-r from-red-800 via-red-900 to-red-800 dark:from-red-700 dark:via-red-600 dark:to-red-700 rounded-full shadow-md"></div>
               <div className="hidden md:block absolute top-0 left-0 right-0 transform -translate-y-1/2 h-1.5 w-full bg-gradient-to-r from-red-800 via-red-900 to-red-800 dark:from-red-700 dark:via-red-600 dark:to-red-700 rounded-full shadow-md"></div>
               
               {leaders.slice(1).map((leader, index) => (
@@ -160,7 +166,7 @@ export default function Organization() {
                       className={`relative w-full h-full transition-all duration-500 preserve-3d ${hoveredCard === `leader-${index+1}` ? 'rotate-y-180' : ''}`}
                     >
                       {/* Front of card */}
-                      <Card className="w-64 overflow-hidden group shadow-md border border-red-200 dark:border-red-900/30 relative z-10 dark:bg-gray-800 backface-hidden">
+                      <Card className="w-64 mt-8 overflow-hidden group shadow-md border border-red-200 dark:border-red-900/30 relative z-10 dark:bg-gray-800 backface-hidden ">
                         <div className="relative h-40 w-full overflow-hidden">
                           <Image
                             src={leader.image}
@@ -248,7 +254,7 @@ export default function Organization() {
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
               >
-                <Card className="h-full hover:shadow-xl transition-all duration-300 dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 dark:bg-gray-800 dark:border-gray-700 overflow-hidden ">
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row gap-4">
                       <div className="relative h-24 w-24 rounded-full overflow-hidden flex-shrink-0 mx-auto md:mx-0 ring-4 ring-red-100 dark:ring-red-900/30 group">

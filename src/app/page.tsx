@@ -6,7 +6,7 @@ import Footer from "../components/sections/footer";
 import Members from "../components/sections/members";
 import Organization from "../components/sections/organization";
 import Header from "../components/shared/header";
-
+import { Quote } from "@/components/sections/quotes";
 
 export default function Home() {
   return (
@@ -17,8 +17,9 @@ export default function Home() {
       <Organization />
       <Members />
       <Activities />
+      <Quote />
       <Contact />
       <Footer />
     </main>
-  )
+  );
 }
