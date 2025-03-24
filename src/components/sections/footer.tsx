@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
-import { Instagram, Youtube, MapPin, Phone, Mail, ArrowUp, ExternalLink } from "lucide-react"
+import { Instagram, Youtube, MapPin, Phone, Mail, ArrowUp } from "lucide-react"
 import { useState } from "react"
 
 export default function Footer() {
