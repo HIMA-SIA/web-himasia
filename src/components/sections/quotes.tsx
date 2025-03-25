@@ -18,31 +18,74 @@ export function Quote() {
 const testimonials = [
   {
     quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+      "Menjadi bagian dari organisasi ini telah memberikan saya banyak pengalaman berharga, terutama dalam kepemimpinan dan pengambilan keputusan yang cepat.",
+    name: "M Maulana Firdausyah",
+    title: "Ketua Umum",
   },
   {
     quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
-  },
-  {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+      "Kolaborasi dan komunikasi yang baik adalah kunci sukses dalam organisasi ini. Saya merasa bangga bisa berkontribusi dan bekerja sama dengan tim yang luar biasa.",
+    name: "Arfandi Ruhanda S",
+    title: "Wakil Ketua Umum",
   },
   {
     quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+      "Administrasi bukan hanya tentang dokumen, tetapi juga tentang bagaimana memastikan setiap informasi tersampaikan dengan jelas dan tepat waktu.",
+    name: "Erlindawati Nduru",
+    title: "Administrasi 2",
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+      "Koordinasi dan manajemen administrasi yang baik memastikan organisasi berjalan dengan lebih tertata dan efektif.",
+    name: "Dita Putri Utami",
+    title: "Koor Administrasi",
+  },
+  {
+    quote:
+      "Menjadi bagian dari tim administrasi mengajarkan saya tentang pentingnya ketelitian dan tanggung jawab dalam setiap pekerjaan.",
+    name: "Faza Shafarania W",
+    title: "Administrasi 1",
+  },
+  {
+    quote:
+      "Berkontribusi di bidang akademik membuka wawasan saya dalam mendukung pengembangan ilmu pengetahuan dan sumber daya yang lebih baik.",
+    name: "Sofia Hanifa",
+    title: "Anggota Akademik",
+  },
+  {
+    quote:
+      "Membangun atmosfer akademik yang kondusif menjadi tantangan tersendiri yang saya nikmati dalam organisasi ini.",
+    name: "Pramudya Ahzani I K",
+    title: "Anggota Akademik",
+  },
+  {
+    quote:
+      "Menjadi koordinator akademik membuat saya lebih memahami bagaimana cara mengelola dan mendukung pertumbuhan intelektual anggota.",
+    name: "Catur Setyono",
+    title: "Koor Akademik",
+  },
+  {
+    quote:
+      "Belajar dan berkembang bersama dalam tim akademik memberikan pengalaman yang sangat berarti bagi saya.",
+    name: "Joharman Lombu",
+    title: "Anggota Akademik",
+  },
+  {
+    quote:
+      "Jaringan yang luas adalah kunci utama dalam pengembangan organisasi. Saya senang bisa berkontribusi dalam bidang networking.",
+    name: "Frisca Putri C",
+    title: "Anggota Networking",
+  },
+  {
+    quote:
+      "Bekerja di bidang networking mengajarkan saya bagaimana membangun hubungan yang solid dan strategis.",
+    name: "Nendi Angger N",
+    title: "Anggota Networking",
+  },
+  {
+    quote:
+      "Sebagai koordinator networking, saya belajar bahwa membangun koneksi yang kuat akan berdampak besar pada perkembangan organisasi ke depannya.",
+    name: "Muchlis Apri Adi N",
+    title: "Koor Networking",
   },
 ];
