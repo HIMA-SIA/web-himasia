@@ -1,17 +1,37 @@
 "use client";
 
-
+import { motion } from "framer-motion";
 import { InfiniteMovingCards } from "../ui/infinite-moving-cards";
 
 export function Quote() {
   return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+    <section id="testimonials" className="py-24 bg-gradient-to-r from-white to-gray-100 dark:from-gray-950 dark:to-gray-900">
+      <div className="container mx-auto px-4 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-red-900 dark:text-red-500 mb-4">
+            Kata Mereka
+          </h2>
+          <div className="w-20 h-1 bg-cyan-500 mx-auto mb-8"></div>
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+            Pengalaman dan pendapat dari anggota kami tentang perjalanan mereka dalam organisasi.
+          </p>
+        </motion.div>
+      </div>
+
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
         speed="slow"
+        background="none"
+        className="py-8"
       />
-    </div>
+    </section>
   );
 }
 
