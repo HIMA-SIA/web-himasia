@@ -132,12 +132,18 @@ export default function Organization() {
             </motion.div>
 
             {/* Improved Vertical Line */}
+
             <div className="w-1 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
+
+            <div className="w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
+
 
             {/* Second Level - Wakil, Sekretaris, Bendahara */}
             <div className="flex flex-col md:flex-row gap-8 mb-8 relative ">
               {/* Horizontal connector for second level - Fixed width and positioning */}
+
               <div className="hidden mb-16 md:block absolute top-0 left-0 right-0 transform -translate-y-1/2 h-1 w-full bg-gradient-to-r from-red-800 via-red-900 to-red-800 dark:from-red-700 dark:via-red-600 dark:to-red-700 rounded-full shadow-md"></div>
+              <div className="hidden md:block absolute top-0 left-0 right-0 transform -translate-y-1/2 h-1.5 w-full bg-gradient-to-r from-red-800 via-red-900 to-red-800 dark:from-red-700 dark:via-red-600 dark:to-red-700 rounded-full shadow-md"></div>
               
               {leaders.slice(1).map((leader, index) => (
                 <motion.div
@@ -149,7 +155,7 @@ export default function Organization() {
                   className="relative"
                 >
                   {/* Vertical Line to each second level position - Improved alignment */}
-                  {/* <div className="absolute -top-0 left-1/2 transform -translate-x-1/2 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md hidden md:block"></div> */}
+                  <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md hidden md:block"></div>
                   
                   <div 
                     className="w-64 perspective-1000 cursor-pointer"
@@ -193,18 +199,19 @@ export default function Organization() {
             </div>
 
             {/* Improved Vertical Line */}
-            <div className="w-1 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-t-sm shadow-md"></div>
+            <div className="w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md mb-4"></div>
 
             {/* Divisions - Third Level */}
+            <h3 className="text-2xl font-bold text-red-900 dark:text-red-500 mb-8 text-center">Divisi</h3>
             
             {/* Main horizontal connector for divisions */}
             <div className="relative w-full max-w-4xl mb-16">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-1 w-[80%] bg-gradient-to-r from-red-300 via-red-900 to-red-800 dark:from-red-700 dark:via-red-600 dark:to-red-700 rounded-full shadow-md"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-1.5 w-[80%] bg-gradient-to-r from-red-800 via-red-900 to-red-800 dark:from-red-700 dark:via-red-600 dark:to-red-700 rounded-full shadow-md"></div>
               
               {/* Vertical connectors from horizontal line to each division - made longer */}
-              {/* <div className="absolute left-[16.67%] transform -translate-x-1/2 top-0 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
+              <div className="absolute left-[16.67%] transform -translate-x-1/2 top-0 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
               <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
-              <div className="absolute left-[83.33%] transform -translate-x-1/2 top-0 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div> */}
+              <div className="absolute left-[83.33%] transform -translate-x-1/2 top-0 w-1.5 h-16 bg-gradient-to-b from-red-800 to-red-900 dark:from-red-700 dark:to-red-600 rounded-full shadow-md"></div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-4xl">
