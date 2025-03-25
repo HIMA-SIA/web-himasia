@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 
-// Define EmailJS keys as constants
+// Define EmailJS keys as constants - update these lines
 const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
@@ -38,9 +38,10 @@ export default function Contact() {
   useEffect(() => {
     if (EMAILJS_PUBLIC_KEY) {
       emailjs.init(EMAILJS_PUBLIC_KEY);
-      console.log("EmailJS initialized with public key");
+      // Remove or comment out this console log in production
+      // console.log("EmailJS initialized with public key");
     } else {
-      console.error("EmailJS public key is missing");
+      console.error("EmailJS public key is missing - check your .env.local file");
     }
   }, []);
 
