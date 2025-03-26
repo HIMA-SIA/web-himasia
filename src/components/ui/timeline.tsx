@@ -6,6 +6,7 @@ import {
   motion,
 } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Clock, Calendar, Sparkles } from "lucide-react";
 
 interface TimelineEntry {
@@ -49,7 +50,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       <div className="max-w-7xl mx-auto py-10 px-4 md:px-8 lg:px-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -57,20 +58,22 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           className="flex flex-col md:flex-row items-center md:items-end justify-between gap-6 mb-10"
         >
           <div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="flex items-center gap-2 bg-red-500/10 dark:bg-red-500/20 px-3 py-1.5 rounded-full w-fit mb-3"
             >
               <Sparkles className="h-4 w-4 text-red-500 dark:text-red-400 animate-pulse" />
-              <span className="text-xs uppercase tracking-wider font-bold text-red-600 dark:text-red-400">Perjalanan Kami</span>
+              <span className="text-xs uppercase tracking-wider font-bold text-red-600 dark:text-red-400">
+                Perjalanan Kami
+              </span>
             </motion.div>
             <h2 className="text-3xl md:text-4xl font-bold relative">
               <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
                 Aktivitas Terkini HIMASIA
               </span>
-              <motion.span 
+              <motion.span
                 initial={{ width: 0 }}
                 animate={{ width: "40%" }}
                 transition={{ duration: 0.8, delay: 0.3 }}
@@ -78,15 +81,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               />
             </h2>
           </div>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-neutral-200 dark:text-neutral-200 text-sm md:text-base max-w-md text-right"
+            className="text-neutral-900 dark:text-neutral-200 text-sm md:text-base max-w-md text-right"
           >
             Kepo dengan aktivitas apa saja yang sudah dilewati oleh HIMASIA?
-            <span className="block font-medium text-red-500 dark:text-red-500 mt-1">Let's Check it Together!</span>
+            <span className="block font-medium text-red-500 dark:text-red-500 mt-1">
+              Let&lsquo;s Check it Together!
+            </span>
           </motion.p>
         </motion.div>
       </div>
@@ -102,17 +107,24 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             className="flex justify-start pt-10 md:pt-40 md:gap-10"
           >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className={`h-10 absolute left-3 md:left-3 w-10 rounded-full 
-                ${activeIndex >= index 
-                  ? "bg-gradient-to-br from-red-600 to-red-500 shadow-lg shadow-red-500/20" 
-                  : "bg-white dark:bg-gray-800"} 
+              <div
+                className={`h-10 absolute left-3 md:left-3 w-10 rounded-full 
+                ${
+                  activeIndex >= index
+                    ? "bg-gradient-to-br from-red-600 to-red-500 shadow-lg shadow-red-500/20"
+                    : "bg-white dark:bg-gray-800"
+                } 
                 transition-all duration-500 flex items-center justify-center`}
               >
-                <div className={`h-4 w-4 rounded-full 
-                  ${activeIndex >= index 
-                    ? "bg-white" 
-                    : "bg-neutral-200 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600"} 
-                  p-2 transition-all duration-500`} />
+                <div
+                  className={`h-4 w-4 rounded-full 
+                  ${
+                    activeIndex >= index
+                      ? "bg-white"
+                      : "bg-neutral-200 dark:bg-neutral-700 border border-neutral-300 dark:border-neutral-600"
+                  } 
+                  p-2 transition-all duration-500`}
+                />
               </div>
               <motion.div
                 initial={{ x: -20, opacity: 0 }}
@@ -121,8 +133,20 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 viewport={{ once: true }}
                 className="hidden md:flex md:pl-20 items-center gap-2"
               >
-                <Calendar className={`h-5 w-5 ${activeIndex >= index ? "text-red-600 dark:text-red-500" : "text-neutral-400"} transition-colors duration-300`} />
-                <h3 className={`md:text-4xl font-bold ${activeIndex >= index ? "text-red-900 dark:text-red-500" : "text-neutral-500 dark:text-neutral-400"} transition-colors duration-300`}>
+                <Calendar
+                  className={`h-5 w-5 ${
+                    activeIndex >= index
+                      ? "text-red-600 dark:text-red-500"
+                      : "text-neutral-400"
+                  } transition-colors duration-300`}
+                />
+                <h3
+                  className={`md:text-4xl font-bold ${
+                    activeIndex >= index
+                      ? "text-red-900 dark:text-red-500"
+                      : "text-neutral-500 dark:text-neutral-400"
+                  } transition-colors duration-300`}
+                >
                   {item.title}
                 </h3>
               </motion.div>
@@ -136,8 +160,20 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 viewport={{ once: true }}
                 className="md:hidden flex items-center gap-2 mb-4"
               >
-                <Calendar className={`h-5 w-5 ${activeIndex >= index ? "text-red-600 dark:text-red-500" : "text-neutral-400"} transition-colors duration-300`} />
-                <h3 className={`text-2xl font-bold ${activeIndex >= index ? "text-red-900 dark:text-red-500" : "text-neutral-500 dark:text-neutral-400"} transition-colors duration-300`}>
+                <Calendar
+                  className={`h-5 w-5 ${
+                    activeIndex >= index
+                      ? "text-red-600 dark:text-red-500"
+                      : "text-neutral-400"
+                  } transition-colors duration-300`}
+                />
+                <h3
+                  className={`text-2xl font-bold ${
+                    activeIndex >= index
+                      ? "text-red-900 dark:text-red-500"
+                      : "text-neutral-500 dark:text-neutral-400"
+                  } transition-colors duration-300`}
+                >
                   {item.title}
                 </h3>
               </motion.div>

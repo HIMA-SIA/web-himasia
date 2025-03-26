@@ -55,12 +55,48 @@ export const activities = [
   },
   {
     id: 2,
+    title: "SGS batch 3",
+    date: "Coming Soon",
+    time: "-",
+    location: "-",
+    description:
+    "Workshop tentang implementasi teknologi terbaru dalam sistem informasi akuntansi.",
+    video: "/activities/comingsoon.mp4",
+    status: "Akan Datang",
+    fullDescription: "Sesi diskusi ini akan membahas konsep dasar pengembangan web dengan React.js serta bagaimana framework ini dapat digunakan untuk membangun aplikasi web modern. Mentor akan memberikan materi dasar dan studi kasus implementasi React dalam proyek nyata.",
+  objectives: [
+    "Memahami dasar-dasar React.js dan komponennya",
+    "Menjelaskan cara kerja state dan props dalam React",
+    "Mengenalkan peluang karir di bidang frontend development"
+  ],
+  outcomes: [
+    "Peserta memahami konsep dasar React.js dan ekosistemnya",
+    "Peserta mampu membuat komponen React sederhana",
+    "Peserta memiliki gambaran tentang tren dan peluang karir di bidang frontend development"
+  ],
+  registrationLink: "https://forms.google.com/studygroup-react",
+  externalLink: "https://studygroup-react.example.com",
+  contactPerson: [
+    {
+      name: "Catur Setyono",
+      role: "Koordinator Study Group",
+      phone: "082334569871"
+    },
+    {
+      name: "Frisca Putri C",
+      role: "Anggota Study Group",
+      phone: "089876543210"
+    }
+  ]
+  },
+  {
+    id: 3,
     title: "Webinar Teknologi Blockchain",
-    date: "15 April 2025",
-    time: "13:00 - 15:00 WIB",
-    location: "Zoom Meeting",
+    date: "Coming Soon",
+    time: "-",
+    location: "-",
     description: "Webinar tentang teknologi blockchain dan implementasinya dalam bisnis modern.",
-    images: "/activities/webinar.jpg",
+    video: "/activities/comingsoon.mp4",
     status: "Akan Datang",
     fullDescription: "Webinar ini akan membahas teknologi blockchain dan bagaimana teknologi ini dapat diimplementasikan dalam berbagai sektor bisnis. Pembicara dari industri akan berbagi pengalaman dan studi kasus nyata tentang penggunaan blockchain.",
     objectives: [
@@ -88,39 +124,7 @@ export const activities = [
       }
     ]
   },
-  {
-    id: 2,
-    title: "SGS batch 3",
-    date: "Coming Soon",
-    time: "-",
-    location: "-",
-    description:
-      "Workshop tentang implementasi teknologi terbaru dalam sistem informasi akuntansi.",
-    video: "/activities/comingsoon.mp4",
-    status: "Akan Datang",
-  },
-  {
-    id: 3,
-    title: "Belajar Bareng",
-    date: "Coming Soon",
-    time: "-",
-    location: "-",
-    description:
-      "Workshop tentang implementasi teknologi terbaru dalam sistem informasi akuntansi.",
-    video: "/activities/comingsoon.mp4",
-    status: "Akan Datang",
-  },
-  {
-    id: 4,
-    title: "Belajar Bareng",
-    date: "Coming Soon",
-    time: "-",
-    location: "-",
-    description:
-      "Workshop tentang implementasi teknologi terbaru dalam sistem informasi akuntansi.",
-    video: "/activities/comingsoon.mp4",
-    status: "Akan Datang",
-  },
+ 
   
 ];
 
