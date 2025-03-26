@@ -58,17 +58,24 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         >
           <div>
             <motion.div 
-              initial={{ scale: 0.9, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-2 text-red-500 dark:text-red-500 mb-3"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="flex items-center gap-2 bg-red-500/10 dark:bg-red-500/20 px-3 py-1.5 rounded-full w-fit mb-3"
             >
-              <Sparkles className="h-5 w-5 animate-pulse" />
-              <span className="text-sm uppercase tracking-wider font-semibold">Perjalanan Kami</span>
+              <Sparkles className="h-4 w-4 text-red-500 dark:text-red-400 animate-pulse" />
+              <span className="text-xs uppercase tracking-wider font-bold text-red-600 dark:text-red-400">Perjalanan Kami</span>
             </motion.div>
-            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
-              Aktivitas Terkini HIMASIA
+            <h2 className="text-3xl md:text-4xl font-bold relative">
+              <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
+                Aktivitas Terkini HIMASIA
+              </span>
+              <motion.span 
+                initial={{ width: 0 }}
+                animate={{ width: "40%" }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="absolute -bottom-2 left-0 h-1 bg-red-500 rounded-full"
+              />
             </h2>
           </div>
           <motion.p 
