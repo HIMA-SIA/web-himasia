@@ -274,7 +274,7 @@ export default function Organization() {
           <h3 className="text-2xl font-bold text-red-900 dark:text-red-500 mb-8 text-center">
             Detail Pengurus Inti
           </h3>
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="grid col-1 lg:col-1  md:flex md:flex-wrap justify-center gap-6">
             {leaders.map((leader, index) => (
               <motion.div
                 key={`detail-${leader.name}`}
