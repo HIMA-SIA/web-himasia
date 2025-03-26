@@ -1,14 +1,17 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu } from "lucide-react"
+import { Menu, Home } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { usePathname, useRouter } from "next/navigation"
+import Link from "next/link"
 
 // Navigation items
 const navigation = [
+  { name: "Home", href: "/", icon: Home, showOnlyOnDetailPage: true },
   { name: "About us", href: "#about" },
   { name: "Struktur", href: "#organization" },
   { name: "Anggota", href: "#members" },
@@ -19,6 +22,10 @@ const navigation = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("#")
+  const pathname = usePathname()
+  const router = useRouter()
+  const isHomePage = pathname === "/"
+  const isDetailPage = pathname.includes("/activities/")
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,32 +35,47 @@ export default function Header() {
         setIsScrolled(false)
       }
       
-      // Determine active section based on scroll position
-      const sections = navigation.map(item => item.href).filter(href => href !== "#")
-      for (const section of sections.reverse()) {
-        const element = document.querySelector(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 100) {
-            setActiveSection(section)
-            break
+      // Only track active section on homepage
+      if (isHomePage) {
+        // Determine active section based on scroll position
+        const sections = navigation.map(item => item.href).filter(href => href !== "#" && href !== "/")
+        for (const section of sections.reverse()) {
+          const element = document.querySelector(section)
+          if (element) {
+            const rect = element.getBoundingClientRect()
+            if (rect.top <= 100) {
+              setActiveSection(section)
+              break
+            }
           }
         }
-      }
-      
-      // If we're at the top, set home as active
-      if (window.scrollY < 100) {
-        setActiveSection("#")
+        
+        // If we're at the top, set home as active
+        if (window.scrollY < 100) {
+          setActiveSection("#")
+        }
       }
     }
     
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isHomePage])
 
-  // Handle smooth scrolling when clicking navigation links
+  // Handle navigation clicks
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
+    
+    // If it's the home link, navigate to homepage
+    if (href === "/") {
+      router.push("/")
+      return
+    }
+    
+    // If not on homepage, navigate to homepage first
+    if (!isHomePage) {
+      router.push(`/${href}`)
+      return
+    }
     
     // If it's just "#" (home), scroll to top
     if (href === "#") {
@@ -71,6 +93,14 @@ export default function Header() {
     }
   }
 
+  // Filter navigation items based on current page
+  const filteredNavigation = navigation.filter(item => {
+    if (item.showOnlyOnDetailPage) {
+      return isDetailPage
+    }
+    return true
+  })
+
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -81,10 +111,9 @@ export default function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <a 
-            href="#" 
+          <Link 
+            href="/"
             className="flex items-center gap-3 group"
-            onClick={(e) => handleNavClick(e, "#")}
           >
             <div className="relative overflow-hidden rounded-full border-2 border-white/20 p-1 transition-all duration-300 group-hover:border-white/40">
               <Image
@@ -99,21 +128,22 @@ export default function Header() {
               <h1 className="font-bold text-white text-xl tracking-tight">HIMASIA</h1>
               <p className="text-white/70 text-xs">Universitas Teknologi Digital Indonesia</p>
             </div>
-          </a>
+          </Link>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
-            {navigation.map((item) => (
+            {filteredNavigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 ${
-                  activeSection === item.href 
+                className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 flex items-center ${
+                  (activeSection === item.href && isHomePage) || (item.href === "/" && isDetailPage)
                     ? 'text-white bg-white/10 shadow-sm' 
                     : 'text-white/80 hover:text-white hover:bg-white/5'
                 }`}
                 onClick={(e) => handleNavClick(e, item.href)}
               >
+                {item.icon && <item.icon className="h-4 w-4 mr-1" />}
                 {item.name}
               </a>
             ))}
@@ -152,17 +182,18 @@ export default function Header() {
                   </div>
                 </div>
                 <nav className="flex flex-col gap-2">
-                  {navigation.map((item) => (
+                  {filteredNavigation.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className={`p-3 rounded-lg text-lg font-bold transition-all ${
-                        activeSection === item.href 
+                      className={`p-3 rounded-lg text-lg font-bold transition-all flex items-center ${
+                        (activeSection === item.href && isHomePage) || (item.href === "/" && isDetailPage)
                           ? 'bg-white/10 text-white' 
                           : 'text-white/80 hover:bg-white/5 hover:text-white'
                       }`}
                       onClick={(e) => handleNavClick(e, item.href)}
                     >
+                      {item.icon && <item.icon className="h-5 w-5 mr-2" />}
                       {item.name}
                     </a>
                   ))}
