@@ -40,7 +40,7 @@ export default function About() {
           >
             HIMASIA adalah Himpunan Mahasiswa Sistem Informasi Akuntansi yang berdedikasi untuk mengembangkan 
             inovasi dan berbagi pengetahuan dan pengalaman beroganisasi. Seiring dengan perkembangan teknologi, kami telah berkembang 
-            menjadi organisasi yang berpengaruh dalam UKM di Universitas Teknologi Digital Indonesia.
+            menjadi organisasi yang berpengaruh dalam KM di Universitas Teknologi Digital Indonesia.
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
