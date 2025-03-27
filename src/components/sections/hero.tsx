@@ -68,7 +68,6 @@ export function Hero() {
           <span className="text-red-800 block">
             Let's Explore More
           </span>
-        
         </motion.div>
       </MaskContainer>
     </div>
