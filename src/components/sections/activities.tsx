@@ -16,50 +16,38 @@ export default function Activities() {
     content: (
       <Link href={`/activities/${activity.id}`} className="block">
         <Card className="overflow-hidden hover:shadow-xl transition-shadow dark:bg-gray-800 group">
-          <div className="relative h-48 w-full">
-            {activity.video && /\.(mp4|webm|ogg)$/i.test(activity.video) ? (
-              <video
-                className="object-cover w-full h-full"
-                playsInline
-                autoPlay
-                loop
-                muted
-              >
-                <source src={activity.video} type="video/mp4" />
-                Browser Anda tidak mendukung elemen video.
-              </video>
-            ) : (
-              <Image
-                src={activity.images || "/images/ph.JPG"} 
-                alt={activity.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            )}
-            <div className="absolute top-4 right-4">
-              <Badge
-                className={`${
-                  activity.status === "Selesai"
-                    ? "bg-green-500"
-                    : "bg-red-600"
-                } hover:${
-                  activity.status === "Selesai"
-                    ? "bg-green-600"
-                    : "bg-red-700"
-                } text-white`}
-              >
-                {activity.status}
-              </Badge>
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-              <div className="p-4 w-full">
-                <span className="text-white flex items-center justify-center">
-                  <span className="mr-1">Lihat Detail</span>
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </div>
-            </div>
-          </div>
+       <div className="relative h-48 w-full">
+  {activity.videoLink ? (
+    <iframe
+    className="w-full h-full"
+    src={`https://www.youtube.com/embed/IYK5G6jdW5k`}
+    frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+  
+  ) : activity.video && /\.(mp4|webm|ogg)$/i.test(activity.video) ? (
+    <video
+      className="object-cover w-full h-full"
+      playsInline
+      autoPlay
+      loop
+      muted
+    >
+      <source src={activity.video} type="video/mp4" />
+      Browser Anda tidak mendukung elemen video.
+    </video>
+  ) : (
+    <Image
+      src={activity.images || "/images/ph.JPG"}
+      alt={activity.title}
+      fill
+      className="object-cover group-hover:scale-105 transition-transform duration-500"
+    />
+  )}
+</div>
+
+
 
           <CardContent className="p-6">
             <h3 className="text-xl font-semibold text-red-900 dark:text-red-400 mb-3 group-hover:text-red-600 dark:group-hover:text-red-300 transition-colors">

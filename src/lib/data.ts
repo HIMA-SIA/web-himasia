@@ -55,6 +55,35 @@ export const activities = [
   },
   {
     id: 2,
+    title: "Pelantikan PH 2024/2025",
+    date: "5 November 2024",
+    time: "08:00 - 12:00 WIB",
+    location: "S34 UTDI",
+    description: "Acara pelantikan anggota baru HIMASIA",
+    videoLink: "IYK5G6jdW5k",
+    status: "Selesai",
+    fullDescription: "Study Group Session (SGS) Batch 2 adalah program workshop intensif yang berfokus pada framework Laravel. Program ini dirancang untuk membantu mahasiswa memahami dasar-dasar pengembangan web menggunakan Laravel, mulai dari instalasi hingga pembuatan aplikasi sederhana.",
+    objectives: [
+      "Memperkenalkan framework Laravel kepada mahasiswa",
+      "Mengajarkan konsep MVC dalam pengembangan web",
+      "Memberikan pengalaman praktis dalam pembuatan aplikasi web"
+    ],
+    outcomes: [
+      "Peserta mampu membuat aplikasi web sederhana menggunakan Laravel",
+      "Peserta memahami struktur dan alur kerja Laravel",
+      "Peserta dapat mengimplementasikan fitur dasar seperti autentikasi dan CRUD"
+    ],
+    documentationLink: "https://drive.google.com/drive/folders/example1",
+    contactPerson: [
+      {
+        name: "Catur Setyono",
+        role: "Koordinator Akademik",
+        phone: "081234567890"
+      }
+    ]
+  },
+  {
+    id: 3,
     title: "SGS batch 3",
     date: "Coming Soon",
     time: "-",
@@ -90,7 +119,7 @@ export const activities = [
   ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Webinar Teknologi Blockchain",
     date: "Coming Soon",
     time: "-",
